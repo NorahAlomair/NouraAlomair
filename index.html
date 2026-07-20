@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Norah | Data Analytics Portfolio</title>
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-color: #0b0713;
+            --card-bg: rgba(23, 15, 38, 0.6);
+            --card-border: rgba(147, 51, 234, 0.25);
+            --card-hover-border: rgba(168, 85, 247, 0.6);
+            --primary-accent: #9333ea;
+            --secondary-accent: #c084fc;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --glow-color: rgba(147, 51, 234, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', 'Tajawal', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Background Glows */
+        .glow-1 {
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(147, 51, 234, 0.2) 0%, rgba(0,0,0,0) 70%);
+            border-radius: 50%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .glow-2 {
+            position: absolute;
+            top: 40%;
+            left: -150px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(126, 34, 206, 0.15) 0%, rgba(0,0,0,0) 70%);
+            border-radius: 50%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 8%;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background: rgba(11, 7, 19, 0.8);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.15rem;
+            letter-spacing: 0.5px;
+            color: var(--text-main);
+            white-space: nowrap;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-accent);
+        }
+
+        /* Buttons */
+        .btn-lang {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--card-border);
+            color: var(--secondary-accent);
+            padding: 0.45rem 0.9rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.82rem;
+            font-weight: 600;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            white-space: nowrap;
+        }
+
+        .btn-lang:hover {
+            background: rgba(147, 51, 234, 0.25);
+            border-color: var(--secondary-accent);
+        }
+
+        .btn-contact {
+            background: rgba(147, 51, 234, 0.2);
+            border: 1px solid var(--primary-accent);
+            color: var(--text-main);
+            padding: 0.45rem 1rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 500;
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+
+        .btn-contact:hover {
+            background: var(--primary-accent);
+            box-shadow: 0 0 15px rgba(147, 51, 234, 0.5);
+        }
+
+        /* Container Layout */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 2.5rem 0 4rem 0;
+        }
+
+        .greeting-badge {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: rgba(147, 51, 234, 0.12);
+            border: 1px solid rgba(147, 51, 234, 0.3);
+            border-radius: 20px;
+            color: var(--secondary-accent);
+            font-size: 0.82rem;
+            margin-bottom: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(180deg, #ffffff 0%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+        }
+
+        .hero h2 {
+            font-size: 1.35rem;
+            color: var(--secondary-accent);
+            font-weight: 500;
+            margin-bottom: 1.2rem;
+            line-height: 1.4;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            max-width: 750px;
+            font-size: 0.98rem;
+            margin-bottom: 2rem;
+            text-align: justify;
+        }
+
+        /* Actions & Social Links */
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-download-cv {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            background: linear-gradient(135deg, var(--primary-accent), #7e22ce);
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 600;
+            box-shadow: 0 4px 20px rgba(147, 51, 234, 0.3);
+            transition: 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .btn-download-cv:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(147, 51, 234, 0.6);
+            background: linear-gradient(135deg, #a855f7, var(--primary-accent));
+        }
+
+        .social-links {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .social-btn {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-main);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .social-btn:hover {
+            border-color: var(--secondary-accent);
+            color: var(--secondary-accent);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px var(--glow-color);
+        }
+
+        /* Section Titles */
+        .section-header {
+            margin: 3.5rem 0 1.5rem 0;
+        }
+
+        .section-header h3 {
+            font-size: 1.6rem;
+            font-weight: 600;
+        }
+
+        /* Skills Card */
+        .skills-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 0.55rem 1.1rem;
+            border-radius: 12px;
+            font-size: 0.88rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: rgba(147, 51, 234, 0.15);
+            border-color: var(--secondary-accent);
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 18px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary-accent), transparent);
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--card-hover-border);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-number {
+            font-size: 0.78rem;
+            color: var(--secondary-accent);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 0.7rem;
+            line-height: 1.35;
+        }
+
+        .project-desc {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            margin-bottom: 1.3rem;
+            flex-grow: 1;
+        }
+
+        .github-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 500;
+            padding: 0.45rem 0.9rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            width: fit-content;
+            transition: 0.3s;
+        }
+
+        .github-link:hover {
+            background: var(--primary-accent);
+            color: #fff;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--card-border);
+            padding: 2rem 8%;
+            margin-top: 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 5%;
+            }
+
+            .nav-links {
+                display: none; /* Hide top menu links on mobile to save space */
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero h2 {
+                font-size: 1.15rem;
+            }
+
+            .hero p {
+                font-size: 0.92rem;
+                text-align: left;
+            }
+
+            html[dir="rtl"] .hero p {
+                text-align: right;
+            }
+
+            .container {
+                padding: 1.2rem 1rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr; /* Single column on phones */
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                justify-content: space-between;
+            }
+
+            .logo {
+                font-size: 1rem;
+            }
+
+            .nav-right {
+                gap: 0.5rem;
+            }
+
+            .btn-lang, .btn-contact {
+                padding: 0.35rem 0.7rem;
+                font-size: 0.75rem;
+            }
+
+            .hero-actions {
+                width: 100%;
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn-download-cv {
+                width: 100%;
+            }
+
+            .social-links {
+                justify-content: center;
+                margin-top: 0.5rem;
+            }
+
+            footer {
+                flex-direction: column;
+                text-align: center;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glow-1"></div>
+    <div class="glow-2"></div>
+
+    <!-- Header Navigation -->
+    <nav>
+        <div class="logo" data-key="nav_logo">NORAH ALOMAIR</div>
+        <div class="nav-right">
+            <ul class="nav-links">
+                <li><a href="#about" data-key="nav_about">About</a></li>
+                <li><a href="#skills" data-key="nav_skills">Skills</a></li>
+                <li><a href="#projects" data-key="nav_projects">Projects</a></li>
+            </ul>
+            <!-- Language Switcher Button -->
+            <button class="btn-lang" onclick="toggleLanguage()">
+                <i class="fas fa-globe"></i> <span id="lang-text">العربية</span>
+            </button>
+            <a href="#about" class="btn-contact" data-key="btn_get_in_touch">Get In Touch</a>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <!-- Hero Section -->
+        <section class="hero" id="about">
+            <span class="greeting-badge" data-key="hero_badge">Data & Analytics Enthusiast</span>
+            <h1 data-key="hero_title">Hi, I'm Norah</h1>
+            <h2 data-key="hero_subtitle">Turning raw data into impactful, data-driven insights.</h2>
+            <p data-key="hero_desc">
+                Turning raw data into impactful, data-driven insights.
+                I am passionate about the data field in all its aspects, including data engineering and data analytics.
+                I focus on transforming data into meaningful insights that support decision-making.
+                I have hands-on experience with tools and technologies such as Python, SQL, Power BI, Excel, and data visualization.
+                I apply my skills through real-world projects, working on data collection, processing, structuring, and analysis to uncover patterns and deliver insights that solve practical problems.
+                I aim to contribute effectively within the data field.
+            </p>
+
+            <!-- Actions & Download CV -->
+            <div class="hero-actions" id="reach-me">
+                <a href="Norah Alomair resume1.pdf" download class="btn-download-cv">
+                    <i class="fas fa-file-arrow-down"></i> <span data-key="btn_cv">Download CV</span>
+                </a>
+
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/norah-alomair-6a0846210" class="social-btn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/NorahAlomair" class="social-btn" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="mailto:nouraalomair321@gmail.com" class="social-btn" title="Email"><i class="far fa-envelope"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <div class="section-header">
+                <h3 data-key="sec_skills">Skills & Tools</h3>
+            </div>
+            <div class="skills-card">
+                <div class="skills-grid">
+                    <div class="skill-tag"><i class="fab fa-python" style="color: #3776AB;"></i> Python</div>
+                    <div class="skill-tag"><i class="fas fa-database" style="color: #00758F;"></i> SQL</div>
+                    <div class="skill-tag"><i class="fas fa-chart-bar" style="color: #F2C811;"></i> Power BI</div>
+                    <div class="skill-tag"><i class="far fa-file-excel" style="color: #1D6F42;"></i> Excel</div>
+                    <div class="skill-tag"><i class="fas fa-chart-line" style="color: #c084fc;"></i> <span data-key="skill_vis">Data Visualization</span></div>
+                    <div class="skill-tag"><i class="fas fa-brain" style="color: #c084fc;"></i> Time Series & Prophet</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <div class="section-header">
+                <h3 data-key="sec_projects">My Projects</h3>
+            </div>
+            <div class="projects-grid">
+
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div>
+                        <div class="project-number">01 / Python</div>
+                        <div class="project-title" data-key="p1_title">King Khalid International Airport Flights Data Analysis</div>
+                        <div class="project-desc" data-key="p1_desc">Python analysis on King Khalid International Airport flight data to uncover operational trends and patterns.</div>
+                    </div>
+                    <a href="https://github.com/NorahAlomair/King-Khalid-International-Airport-Flights-Data-Analysis" class="github-link"><i class="fab fa-github"></i> GitHub Repo</a>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div>
+                        <div class="project-number">02 / Power BI</div>
+                        <div class="project-title" data-key="p2_title">Riyadh Metro Analysis</div>
+                        <div class="project-desc" data-key="p2_desc">Interactive Power BI dashboard & analysis of Riyadh Metro stations and passenger flows.</div>
+                    </div>
+                    <a href="https://github.com/NorahAlomair/Riyadh-Metro-Power-BI" class="github-link"><i class="fab fa-github"></i> GitHub Repo</a>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div>
+                        <div class="project-number">03 / Power BI</div>
+                        <div class="project-title" data-key="p3_title">Saudi Jadarah Job Data 2025</div>
+                        <div class="project-desc" data-key="p3_desc">Power BI dashboard analyzing Saudi Jadarah job market trends and employment data for 2025.</div>
+                    </div>
+                    <a href="https://github.com/NorahAlomair/Power-BI-Saudi-Jadarah-Job-Data-2025" class="github-link"><i class="fab fa-github"></i> GitHub Repo</a>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <div>
+                        <div class="project-number">04 / SQL</div>
+                        <div class="project-title" data-key="p4_title">Real Estate Analysis Riyadh</div>
+                        <div class="project-desc" data-key="p4_desc">In-depth data analysis of Riyadh real estate properties using advanced SQL queries.</div>
+                    </div>
+                    <a href="https://github.com/NorahAlomair/SQL-Real-Estate-Analysis-Riyadh" class="github-link"><i class="fab fa-github"></i> GitHub Repo</a>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card">
+                    <div>
+                        <div class="project-number">05 / Power BI</div>
+                        <div class="project-title" data-key="p5_title">Outpatient Clinic Data KFSH Q1 2025</div>
+                        <div class="project-desc" data-key="p5_desc">Interactive Power BI dashboard analyzing outpatient clinic operations at King Faisal Specialist Hospital.</div>
+                    </div>
+                    <a href="https://github.com/NorahAlomair/NorahAlomair-outpatient-clinic-data-at-King-Faisal-Specialist-Hospital-Research-Center-Q1-2025" class="github-link"><i class="fab fa-github"></i> GitHub Repo</a>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card">
+                    <div>
+                        <div class="project-number">06 / Python & Forecasting</div>
+                        <div class="project-title" data-key="p6_title">McDonald's Stock Data Analysis</div>
+                        <div class="project-desc" data-key="p6_desc">Python analysis and stock price forecasting using Meta's Prophet model for time series prediction.</div>
+                    </div>
+                    <a href="https://github.com/NorahAlomair/McDonald-s-Stock-Data-Analysis" class="github-link"><i class="fab fa-github"></i> GitHub Repo</a>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div data-key="footer_copy">© 2026 Norah Alomair . All rights reserved.</div>
+        <div data-key="footer_built">Built with ❤️</div>
+    </footer>
+
+    <!-- JavaScript For Language Toggle -->
+    <script>
+        const translations = {
+            en: {
+                nav_logo: "NORAH ALOMAIR",
+                nav_about: "About",
+                nav_skills: "Skills",
+                nav_projects: "Projects",
+                btn_get_in_touch: "Get In Touch",
+                hero_badge: "Data & Analytics Enthusiast",
+                hero_title: "Hi, I'm Norah",
+                hero_subtitle: "Turning raw data into impactful, data-driven insights.",
+                hero_desc: "Turning raw data into impactful, data-driven insights. I am passionate about the data field in all its aspects, including data engineering and data analytics. I focus on transforming data into meaningful insights that support decision-making. I have hands-on experience with tools and technologies such as Python, SQL, Power BI, Excel, and data visualization. I apply my skills through real-world projects, working on data collection, processing, structuring, and analysis to uncover patterns and deliver insights that solve practical problems. I aim to contribute effectively within the data field.",
+                btn_cv: "Download CV",
+                sec_skills: "Skills & Tools",
+                skill_vis: "Data Visualization",
+                sec_projects: "My Projects",
+                p1_title: "King Khalid International Airport Flights Data Analysis",
+                p1_desc: "Python analysis on King Khalid International Airport flight data to uncover operational trends and patterns.",
+                p2_title: "Riyadh Metro Analysis",
+                p2_desc: "Interactive Power BI dashboard & analysis of Riyadh Metro stations and passenger flows.",
+                p3_title: "Saudi Jadarah Job Data 2025",
+                p3_desc: "Power BI dashboard analyzing Saudi Jadarah job market trends and employment data for 2025.",
+                p4_title: "Real Estate Analysis Riyadh",
+                p4_desc: "In-depth data analysis of Riyadh real estate properties using advanced SQL queries.",
+                p5_title: "Outpatient Clinic Data KFSH Q1 2025",
+                p5_desc: "Interactive Power BI dashboard analyzing outpatient clinic operations at King Faisal Specialist Hospital.",
+                p6_title: "McDonald's Stock Data Analysis",
+                p6_desc: "Python analysis and stock price forecasting using Meta's Prophet model for time series prediction.",
+                footer_copy: "© 2026 Norah Alomair . All rights reserved.",
+                footer_built: "Built with ❤️"
+            },
+            ar: {
+                nav_logo: "نورة العميّر",
+                nav_about: "نبذة عني",
+                nav_skills: "المهارات",
+                nav_projects: "المشاريع",
+                btn_get_in_touch: "تواصل معي",
+                hero_badge: "شغوفة بالبيانات والتحليل",
+                hero_title: "أهلاً، أنا نورة",
+                hero_subtitle: "تحويل البيانات الخام إلى رؤى قيّمة تدعم اتخاذ القرار.",
+                hero_desc: "تحويل البيانات الخام إلى رؤى قيّمة تدعم اتخاذ القرار. أنا شغوفة بمجال البيانات بجميع جوانبه، بما في ذلك هندسة البيانات وتحليل البيانات. أركز على تحويل البيانات إلى حلول ورؤى مفهومة تسهم في دعم القرارات. لدي خبرة عملية في التعامل مع أدوات وتقنيات متعددة مثل Python و SQL و Power BI و Excel وتمثيل البيانات. أقوم بتطبيق مهاراتي من خلال مشاريع واقعية تشمل جمع البيانات، معالجتها، تنظيمها، وتحليلها لاستكشاف الأنماط وتقديم حلول مشكلات عملية. أطمح للمساهمة بشكل فعال وملموس في مجال البيانات.",
+                btn_cv: "تحميل السيرة الذاتية",
+                sec_skills: "المهارات والأدوات",
+                skill_vis: "تمثيل البيانات",
+                sec_projects: "مشاريعي",
+                p1_title: "تحليل بيانات رحلات مطار الملك خالد الدولي",
+                p1_desc: "تحليل باستخدام Python لبيانات الرحلات في مطار الملك خالد الدولي لاستكشاف الأنماط والاتجاهات التشغيلية.",
+                p2_title: "تحليل مشروع مترو الرياض",
+                p2_desc: "لوحة تحكم تفاعلية عبر Power BI لتحليل حركة الركاب ومحطات مترو الرياض.",
+                p3_title: "تحليل بيانات الوظائف في منصة جدارات 2025",
+                p3_desc: "لوحة Power BI تحلل اتجاهات سوق العمل والفرص الوظيفية في المملكة عبر منصة جدارات.",
+                p4_title: "تحليل العقارات في مدينة الرياض",
+                p4_desc: "تحليل شامل وعميق للعقارات في الرياض باستخدام استعلامات SQL المتقدمة.",
+                p5_title: "بيانات العيادات الخارجية بمستشفى الملك فيصل التخصصي Q1 2025",
+                p5_desc: "لوحة تحكم Power BI تفاعلية لتحليل عمليات وأداء العيادات الخارجية في المستشفى.",
+                p6_title: "تحليل واستشراف أسهم ماكدونالدز",
+                p6_desc: "تحليل بواسطة Python والتنبؤ بأسعار الأسهم باستخدام نموذج Prophet للسلاسل الزمنية.",
+                footer_copy: "© 2026 نورة العميّر . جميع الحقوق محفوظة.",
+                footer_built: "صُنع بـ ❤️"
+            }
+        };
+
+        let currentLang = 'en';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'ar' : 'en';
+
+            document.documentElement.lang = currentLang;
+            document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+
+            document.getElementById('lang-text').innerText = currentLang === 'en' ? 'العربية' : 'English';
+
+            document.querySelectorAll('[data-key]').forEach(elem => {
+                const key = elem.getAttribute('data-key');
+                if (translations[currentLang][key]) {
+                    elem.innerText = translations[currentLang][key];
+                }
+            });
+        }
+    </script>
+</body>
+</html>
