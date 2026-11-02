@@ -1,1219 +1,537 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Norah | Data Analytics Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Norah | Data Analytics Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root{--bg-color:#0b0713;--card-bg:rgba(23,15,38,.6);--card-border:rgba(147,51,234,.25);--card-hover-border:rgba(168,85,247,.6);--primary-accent:#9333ea;--secondary-accent:#c084fc;--text-main:#f3f4f6;--text-muted:#9ca3af;--glow-color:rgba(147,51,234,.15)}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Plus Jakarta Sans','Tajawal',sans-serif}
+html{scroll-behavior:smooth}
+body{background-color:var(--bg-color);color:var(--text-main);line-height:1.6;overflow-x:hidden;position:relative}
+.glow-1{position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(147,51,234,.2) 0%,rgba(0,0,0,0) 70%);border-radius:50%;z-index:-1;pointer-events:none}
+.glow-2{position:absolute;top:40%;left:-150px;width:400px;height:400px;background:radial-gradient(circle,rgba(126,34,206,.15) 0%,rgba(0,0,0,0) 70%);border-radius:50%;z-index:-1;pointer-events:none}
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 8%;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);background:rgba(11,7,19,.8);position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(255,255,255,.05);flex-wrap:wrap;gap:.8rem}
+.logo{font-weight:700;font-size:1.15rem;letter-spacing:.5px;color:var(--text-main);white-space:nowrap}
+.nav-right{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.nav-links{display:flex;gap:1.5rem;list-style:none}
+.nav-links a{color:var(--text-muted);text-decoration:none;font-size:.9rem;transition:.3s}
+.nav-links a:hover{color:var(--secondary-accent)}
+.btn-lang{background:rgba(255,255,255,.05);border:1px solid var(--card-border);color:var(--secondary-accent);padding:.45rem .9rem;border-radius:20px;cursor:pointer;font-size:.82rem;font-weight:600;transition:.3s;display:inline-flex;align-items:center;gap:.4rem;white-space:nowrap}
+.btn-lang:hover{background:rgba(147,51,234,.25);border-color:var(--secondary-accent)}
+.btn-contact{background:rgba(147,51,234,.2);border:1px solid var(--primary-accent);color:var(--text-main);padding:.45rem 1rem;border-radius:30px;text-decoration:none;font-size:.82rem;font-weight:500;transition:.3s;white-space:nowrap}
+.btn-contact:hover{background:var(--primary-accent);box-shadow:0 0 15px rgba(147,51,234,.5)}
+.container{max-width:1100px;margin:0 auto;padding:2rem 1.5rem}
+.hero{padding:2.5rem 0 4rem 0}
+.greeting-badge{display:inline-block;padding:.4rem 1rem;background:rgba(147,51,234,.12);border:1px solid rgba(147,51,234,.3);border-radius:20px;color:var(--secondary-accent);font-size:.82rem;margin-bottom:1.2rem;text-transform:uppercase;letter-spacing:.8px}
+.hero h1{font-size:3rem;font-weight:700;margin-bottom:.5rem;background:linear-gradient(180deg,#fff 0%,#a78bfa 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.2}
+.hero h2{font-size:1.35rem;color:var(--secondary-accent);font-weight:500;margin-bottom:1.2rem;line-height:1.4}
+.hero p{color:var(--text-muted);max-width:750px;font-size:.98rem;margin-bottom:2rem;text-align:justify}
+.hero-actions{display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap}
+.btn-download-cv{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;background:linear-gradient(135deg,var(--primary-accent),#7e22ce);color:#fff;padding:.75rem 1.5rem;border-radius:30px;text-decoration:none;font-size:.88rem;font-weight:600;box-shadow:0 4px 20px rgba(147,51,234,.3);transition:.3s ease;white-space:nowrap}
+.btn-download-cv:hover{transform:translateY(-2px);box-shadow:0 6px 25px rgba(147,51,234,.6);background:linear-gradient(135deg,#a855f7,var(--primary-accent))}
+.social-links{display:flex;gap:.75rem}
+.social-btn{width:42px;height:42px;border-radius:50%;background:var(--card-bg);border:1px solid var(--card-border);display:flex;align-items:center;justify-content:center;color:var(--text-main);text-decoration:none;transition:.3s}
+.social-btn:hover{border-color:var(--secondary-accent);color:var(--secondary-accent);transform:translateY(-2px);box-shadow:0 5px 15px var(--glow-color)}
+.section-header{margin:3.5rem 0 1.5rem 0}
+.section-header h3{font-size:1.6rem;font-weight:600}
+.skills-card{background:var(--card-bg);border:1px solid var(--card-border);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:16px;padding:1.5rem;margin-bottom:3rem}
+.skills-grid{display:flex;flex-wrap:wrap;gap:.75rem}
+.skill-tag{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);padding:.55rem 1.1rem;border-radius:12px;font-size:.88rem;display:flex;align-items:center;gap:.5rem;transition:.3s}
+.skill-tag:hover{background:rgba(147,51,234,.15);border-color:var(--secondary-accent)}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem}
+.project-card{background:var(--card-bg);border:1px solid var(--card-border);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:18px;padding:1.5rem;transition:all .3s ease;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.project-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,transparent,var(--primary-accent),transparent);opacity:0;transition:.3s}
+.project-card:hover{transform:translateY(-4px);border-color:var(--card-hover-border);box-shadow:0 8px 25px rgba(0,0,0,.4)}
+.project-card:hover::before{opacity:1}
+.project-number{font-size:.78rem;color:var(--secondary-accent);font-weight:700;text-transform:uppercase;margin-bottom:.5rem}
+.project-title{font-size:1.15rem;font-weight:600;margin-bottom:.7rem;line-height:1.35}
+.project-desc{color:var(--text-muted);font-size:.88rem;margin-bottom:1.3rem;flex-grow:1}
 
-    <!-- Google Fonts & FontAwesome Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+/* NEW: project thumbnail */
+.project-thumb{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;object-position:top;border-radius:12px;border:1px solid var(--card-border);margin-bottom:1.1rem;cursor:zoom-in;background:rgba(255,255,255,.03);transition:border-color .3s}
+.project-thumb:hover{border-color:var(--secondary-accent)}
 
-    <style>
-        :root {
-            --bg-color: #0b0713;
-            --card-bg: rgba(23, 15, 38, 0.6);
-            --card-border: rgba(147, 51, 234, 0.25);
-            --card-hover-border: rgba(168, 85, 247, 0.6);
-            --primary-accent: #9333ea;
-            --secondary-accent: #c084fc;
-            --text-main: #f3f4f6;
-            --text-muted: #9ca3af;
-            --glow-color: rgba(147, 51, 234, 0.15);
-        }
+/* Buttons row */
+.project-actions{display:flex;flex-wrap:wrap;gap:.6rem}
+.github-link,.btn-preview,.report-link{display:inline-flex;align-items:center;gap:.5rem;color:var(--text-main);text-decoration:none;font-size:.82rem;font-weight:500;padding:.45rem .9rem;background:rgba(255,255,255,.05);border:1px solid transparent;border-radius:8px;width:fit-content;transition:.3s;cursor:pointer}
+.github-link:hover,.btn-preview:hover,.report-link:hover{background:var(--primary-accent);color:#fff}
+.btn-preview,.report-link{border-color:var(--card-border);color:var(--secondary-accent)}
+.btn-preview:hover,.report-link:hover{color:#fff}
+.btn-preview[hidden]{display:none}
+.github-link:focus-visible,.btn-preview:focus-visible,.report-link:focus-visible,.project-thumb:focus-visible,.lb-btn:focus-visible{outline:2px solid var(--secondary-accent);outline-offset:2px}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Plus Jakarta Sans', 'Tajawal', sans-serif;
-        }
+/* Project groups + clickable thumbnail */
+.group-title{display:flex;align-items:center;gap:.6rem;font-size:1.05rem;font-weight:600;color:var(--secondary-accent);margin:2.2rem 0 1rem}
+.group-title:first-of-type{margin-top:0}
+.group-title::after{content:'';flex:1;height:1px;background:var(--card-border)}
+.project-actions .github-link,.project-actions .report-link{flex:1 1 auto;justify-content:center}
+.project-card.wide{grid-column:1/-1}
+.project-card.wide .project-actions .github-link{flex:0 0 auto}
+.project-card.wide .thumb-btn{max-width:380px}
+.thumb-btn{position:relative;display:block;width:100%;padding:0;border:0;background:none;border-radius:12px;margin-bottom:1.1rem;cursor:zoom-in}
+.thumb-btn .project-thumb{margin-bottom:0}
+.thumb-btn:hover .project-thumb{border-color:var(--secondary-accent)}
+.thumb-badge{position:absolute;top:.6rem;inset-inline-end:.6rem;width:32px;height:32px;border-radius:50%;background:rgba(11,7,19,.75);border:1px solid var(--card-border);color:var(--secondary-accent);display:flex;align-items:center;justify-content:center;font-size:.8rem;transition:.3s}
+.thumb-btn:hover .thumb-badge{background:var(--primary-accent);color:#fff}
+.thumb-btn:focus-visible{outline:2px solid var(--secondary-accent);outline-offset:2px}
 
-        html {
-            scroll-behavior: smooth;
-        }
+/* Goal + key insights block */
+.project-insights{padding-top:.9rem;margin-bottom:1.3rem;border-top:1px solid var(--card-border);font-size:.84rem;color:var(--text-muted)}
+.insight-goal{margin-bottom:.8rem}
+.insight-goal strong,.insight-label{color:var(--secondary-accent);font-weight:600}
+.insight-label{display:block;margin-bottom:.4rem}
+.insight-list{list-style:none;display:flex;flex-direction:column;gap:.4rem}
+.insight-list li{position:relative;padding-inline-start:1rem}
+.insight-list li::before{content:'';position:absolute;inset-inline-start:0;top:.6em;width:5px;height:5px;border-radius:50%;background:var(--primary-accent)}
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-            overflow-x: hidden;
-            position: relative;
-        }
+/* Experience */
+.experience-card{background:var(--card-bg);border:1px solid var(--card-border);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:16px;padding:1.5rem;margin-bottom:3rem}
+.exp-head{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;flex-wrap:wrap;margin-bottom:1.1rem}
+.exp-role{font-size:1.15rem;font-weight:600;line-height:1.35}
+.exp-company{color:var(--secondary-accent);font-size:.9rem;font-weight:500}
+.exp-date{color:var(--secondary-accent);font-size:.8rem;background:rgba(147,51,234,.12);border:1px solid rgba(147,51,234,.3);border-radius:20px;padding:.3rem .9rem;white-space:nowrap}
+.exp-list{font-size:.92rem;color:var(--text-muted);gap:.7rem}
 
-        /* Background Glows */
-        .glow-1 {
-            position: absolute;
-            top: -100px;
-            right: -100px;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(
-                circle,
-                rgba(147, 51, 234, 0.2) 0%,
-                rgba(0,0,0,0) 70%
-            );
-            border-radius: 50%;
-            z-index: -1;
-            pointer-events: none;
-        }
+/* Education + certifications */
+.edu-grid,.cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.25rem;margin-bottom:3rem}
+.edu-grid .experience-card,.cert-grid .experience-card{margin-bottom:0}
+.edu-note{color:var(--text-muted);font-size:.88rem}
+.cert-title{display:flex;align-items:center;gap:.6rem;font-size:1rem;font-weight:600;margin-bottom:1rem;color:var(--secondary-accent);line-height:1.4}
+.cert-list{list-style:none;display:flex;flex-direction:column;gap:.85rem}
+.cert-name{display:block;font-size:.92rem;font-weight:500;line-height:1.4}
+.cert-meta{display:block;font-size:.8rem;color:var(--text-muted)}
+.cert-more{margin:-1.8rem 0 3rem}
 
-        .glow-2 {
-            position: absolute;
-            top: 40%;
-            left: -150px;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(
-                circle,
-                rgba(126, 34, 206, 0.15) 0%,
-                rgba(0,0,0,0) 70%
-            );
-            border-radius: 50%;
-            z-index: -1;
-            pointer-events: none;
-        }
+/* NEW: lightbox */
+.lightbox{position:fixed;inset:0;z-index:200;background:rgba(7,4,13,.92);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:3.5rem 1rem 3rem}
+.lightbox.open{display:flex}
+.lb-img{max-width:min(1200px,100%);max-height:100%;object-fit:contain;border-radius:12px;border:1px solid var(--card-border);box-shadow:0 10px 40px rgba(0,0,0,.6)}
+.lb-btn{position:absolute;background:rgba(255,255,255,.08);border:1px solid var(--card-border);color:var(--text-main);width:44px;height:44px;border-radius:50%;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:.3s}
+.lb-btn:hover{background:var(--primary-accent)}
+.lb-close{top:1rem;right:1rem}
+.lb-prev{left:1rem;top:50%;transform:translateY(-50%)}
+.lb-next{right:1rem;top:50%;transform:translateY(-50%)}
+.lb-caption{position:absolute;bottom:.9rem;left:0;right:0;text-align:center;color:var(--text-muted);font-size:.82rem;padding:0 4rem}
+.lb-btn[hidden]{display:none}
 
-        /* Navigation Bar */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.2rem 8%;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            background: rgba(11, 7, 19, 0.8);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            flex-wrap: wrap;
-            gap: 0.8rem;
-        }
+footer{border-top:1px solid var(--card-border);padding:2rem 8%;margin-top:4rem;display:flex;justify-content:space-between;align-items:center;color:var(--text-muted);font-size:.82rem;flex-wrap:wrap;gap:1rem}
 
-        .logo {
-            font-weight: 700;
-            font-size: 1.15rem;
-            letter-spacing: 0.5px;
-            color: var(--text-main);
-            white-space: nowrap;
-        }
-
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--secondary-accent);
-        }
-
-        /* Buttons */
-        .btn-lang {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--card-border);
-            color: var(--secondary-accent);
-            padding: 0.45rem 0.9rem;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 0.82rem;
-            font-weight: 600;
-            transition: 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            white-space: nowrap;
-        }
-
-        .btn-lang:hover {
-            background: rgba(147, 51, 234, 0.25);
-            border-color: var(--secondary-accent);
-        }
-
-        .btn-contact {
-            background: rgba(147, 51, 234, 0.2);
-            border: 1px solid var(--primary-accent);
-            color: var(--text-main);
-            padding: 0.45rem 1rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-size: 0.82rem;
-            font-weight: 500;
-            transition: 0.3s;
-            white-space: nowrap;
-        }
-
-        .btn-contact:hover {
-            background: var(--primary-accent);
-            box-shadow: 0 0 15px rgba(147, 51, 234, 0.5);
-        }
-
-        /* Container Layout */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 2.5rem 0 4rem 0;
-        }
-
-        .greeting-badge {
-            display: inline-block;
-            padding: 0.4rem 1rem;
-            background: rgba(147, 51, 234, 0.12);
-            border: 1px solid rgba(147, 51, 234, 0.3);
-            border-radius: 20px;
-            color: var(--secondary-accent);
-            font-size: 0.82rem;
-            margin-bottom: 1.2rem;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(180deg, #ffffff 0%, #a78bfa 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            line-height: 1.2;
-        }
-
-        .hero h2 {
-            font-size: 1.35rem;
-            color: var(--secondary-accent);
-            font-weight: 500;
-            margin-bottom: 1.2rem;
-            line-height: 1.4;
-        }
-
-        .hero p {
-            color: var(--text-muted);
-            max-width: 750px;
-            font-size: 0.98rem;
-            margin-bottom: 2rem;
-            text-align: justify;
-        }
-
-        /* Actions & Social Links */
-        .hero-actions {
-            display: flex;
-            align-items: center;
-            gap: 1.2rem;
-            flex-wrap: wrap;
-        }
-
-        .btn-download-cv {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.6rem;
-            background: linear-gradient(
-                135deg,
-                var(--primary-accent),
-                #7e22ce
-            );
-            color: #fff;
-            padding: 0.75rem 1.5rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-size: 0.88rem;
-            font-weight: 600;
-            box-shadow: 0 4px 20px rgba(147, 51, 234, 0.3);
-            transition: 0.3s ease;
-            white-space: nowrap;
-        }
-
-        .btn-download-cv:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(147, 51, 234, 0.6);
-            background: linear-gradient(
-                135deg,
-                #a855f7,
-                var(--primary-accent)
-            );
-        }
-
-        .social-links {
-            display: flex;
-            gap: 0.75rem;
-        }
-
-        .social-btn {
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-main);
-            text-decoration: none;
-            transition: 0.3s;
-        }
-
-        .social-btn:hover {
-            border-color: var(--secondary-accent);
-            color: var(--secondary-accent);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px var(--glow-color);
-        }
-
-        /* Section Titles */
-        .section-header {
-            margin: 3.5rem 0 1.5rem 0;
-        }
-
-        .section-header h3 {
-            font-size: 1.6rem;
-            font-weight: 600;
-        }
-
-        /* Skills Card */
-        .skills-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-radius: 16px;
-            padding: 1.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .skills-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
-
-        .skill-tag {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 0.55rem 1.1rem;
-            border-radius: 12px;
-            font-size: 0.88rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: 0.3s;
-        }
-
-        .skill-tag:hover {
-            background: rgba(147, 51, 234, 0.15);
-            border-color: var(--secondary-accent);
-        }
-
-        /* Projects Grid */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(
-                auto-fill,
-                minmax(280px, 1fr)
-            );
-            gap: 1.25rem;
-        }
-
-        .project-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-radius: 18px;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(
-                90deg,
-                transparent,
-                var(--primary-accent),
-                transparent
-            );
-            opacity: 0;
-            transition: 0.3s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--card-hover-border);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-        }
-
-        .project-card:hover::before {
-            opacity: 1;
-        }
-
-        .project-number {
-            font-size: 0.78rem;
-            color: var(--secondary-accent);
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-title {
-            font-size: 1.15rem;
-            font-weight: 600;
-            margin-bottom: 0.7rem;
-            line-height: 1.35;
-        }
-
-        .project-desc {
-            color: var(--text-muted);
-            font-size: 0.88rem;
-            margin-bottom: 1.3rem;
-            flex-grow: 1;
-        }
-
-        .github-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--text-main);
-            text-decoration: none;
-            font-size: 0.82rem;
-            font-weight: 500;
-            padding: 0.45rem 0.9rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 8px;
-            width: fit-content;
-            transition: 0.3s;
-        }
-
-        .github-link:hover {
-            background: var(--primary-accent);
-            color: #fff;
-        }
-
-        /* Footer */
-        footer {
-            border-top: 1px solid var(--card-border);
-            padding: 2rem 8%;
-            margin-top: 4rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: var(--text-muted);
-            font-size: 0.82rem;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        /* Responsive Breakpoints */
-        @media (max-width: 768px) {
-            nav {
-                padding: 1rem 5%;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .hero h2 {
-                font-size: 1.15rem;
-            }
-
-            .hero p {
-                font-size: 0.92rem;
-                text-align: left;
-            }
-
-            html[dir="rtl"] .hero p {
-                text-align: right;
-            }
-
-            .container {
-                padding: 1.2rem 1rem;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
-            nav {
-                justify-content: space-between;
-            }
-
-            .logo {
-                font-size: 1rem;
-            }
-
-            .nav-right {
-                gap: 0.5rem;
-            }
-
-            .btn-lang,
-            .btn-contact {
-                padding: 0.35rem 0.7rem;
-                font-size: 0.75rem;
-            }
-
-            .hero-actions {
-                width: 100%;
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .btn-download-cv {
-                width: 100%;
-            }
-
-            .social-links {
-                justify-content: center;
-                margin-top: 0.5rem;
-            }
-
-            footer {
-                flex-direction: column;
-                text-align: center;
-                justify-content: center;
-            }
-        }
-    </style>
+@media (max-width:768px){
+nav{padding:1rem 5%}.nav-links{display:none}.hero h1{font-size:2.2rem}.hero h2{font-size:1.15rem}
+.hero p{font-size:.92rem;text-align:left}html[dir="rtl"] .hero p{text-align:right}
+.container{padding:1.2rem 1rem}.projects-grid{grid-template-columns:1fr}
+.lb-prev{left:.5rem}.lb-next{right:.5rem}.lb-close{right:.5rem}
+}
+@media (max-width:480px){
+nav{justify-content:space-between}.logo{font-size:1rem}.nav-right{gap:.5rem}
+.btn-lang,.btn-contact{padding:.35rem .7rem;font-size:.75rem}
+.hero-actions{width:100%;flex-direction:column;align-items:stretch}.btn-download-cv{width:100%}
+.social-links{justify-content:center;margin-top:.5rem}
+footer{flex-direction:column;text-align:center;justify-content:center}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
 </head>
-
 <body>
-
-    <div class="glow-1"></div>
-    <div class="glow-2"></div>
-
-    <!-- Header Navigation -->
-    <nav>
-        <div class="logo" data-key="nav_logo">
-            NORAH ALOMAIR
-        </div>
-
-        <div class="nav-right">
-            <ul class="nav-links">
-                <li>
-                    <a href="#about" data-key="nav_about">
-                        About
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#skills" data-key="nav_skills">
-                        Skills
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#projects" data-key="nav_projects">
-                        Projects
-                    </a>
-                </li>
-            </ul>
-
-            <!-- Language Switcher Button -->
-            <button class="btn-lang" onclick="toggleLanguage()">
-                <i class="fas fa-globe"></i>
-                <span id="lang-text">العربية</span>
-            </button>
-
-            <a
-                href="#about"
-                class="btn-contact"
-                data-key="btn_get_in_touch"
-            >
-                Get In Touch
-            </a>
-        </div>
-    </nav>
-
-    <div class="container">
-
-        <!-- Hero Section -->
-        <section class="hero" id="about">
-
-            <span
-                class="greeting-badge"
-                data-key="hero_badge"
-            >
-                Data & Analytics Enthusiast
-            </span>
-
-            <h1 data-key="hero_title">
-                Hi, I'm Norah
-            </h1>
-
-            <h2 data-key="hero_subtitle">
-                Turning raw data into impactful, data-driven insights.
-            </h2>
-
-            <p data-key="hero_desc">
-                Turning raw data into impactful, data-driven insights.
-                I am passionate about the data field in all its aspects,
-                including data engineering and data analytics.
-                I focus on transforming data into meaningful insights
-                that support decision-making.
-                I have hands-on experience with tools and technologies
-                such as Python, SQL, Power BI, Excel, and data visualization.
-                I apply my skills through real-world projects, working on
-                data collection, processing, structuring, and analysis
-                to uncover patterns and deliver insights that solve
-                practical problems.
-                I aim to contribute effectively within the data field.
-            </p>
-
-            <!-- Actions & Download CV -->
-            <div class="hero-actions" id="reach-me">
-
-                <a
-                    href="Norah Alomair resume-.pdf"
-                    download
-                    class="btn-download-cv"
-                >
-                    <i class="fas fa-file-arrow-down"></i>
-                    <span data-key="btn_cv">
-                        Download CV
-                    </span>
-                </a>
-
-                <div class="social-links">
-
-                    <a
-                        href="https://www.linkedin.com/in/norah-alomair-6a0846210"
-                        class="social-btn"
-                        title="LinkedIn"
-                    >
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-
-                    <a
-                        href="https://github.com/NorahAlomair"
-                        class="social-btn"
-                        title="GitHub"
-                    >
-                        <i class="fab fa-github"></i>
-                    </a>
-
-                    <a
-                        href="mailto:nouraalomair321@gmail.com"
-                        class="social-btn"
-                        title="Email"
-                    >
-                        <i class="far fa-envelope"></i>
-                    </a>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills">
-
-            <div class="section-header">
-                <h3 data-key="sec_skills">
-                    Skills & Tools
-                </h3>
-            </div>
-
-            <div class="skills-card">
-
-                <div class="skills-grid">
-
-                    <div class="skill-tag">
-                        <i
-                            class="fab fa-python"
-                            style="color: #3776AB;"
-                        ></i>
-                        Python
-                    </div>
-
-                    <div class="skill-tag">
-                        <i
-                            class="fas fa-database"
-                            style="color: #00758F;"
-                        ></i>
-                        SQL
-                    </div>
-
-                    <div class="skill-tag">
-                        <i
-                            class="fas fa-chart-bar"
-                            style="color: #F2C811;"
-                        ></i>
-                        Power BI
-                    </div>
-
-                    <div class="skill-tag">
-                        <i
-                            class="far fa-file-excel"
-                            style="color: #1D6F42;"
-                        ></i>
-                        Excel
-                    </div>
-
-                    <div class="skill-tag">
-                        <i
-                            class="fas fa-chart-line"
-                            style="color: #c084fc;"
-                        ></i>
-                        <span data-key="skill_vis">
-                            Data Visualization
-                        </span>
-                    </div>
-
-                    <div class="skill-tag">
-                        <i
-                            class="fas fa-brain"
-                            style="color: #c084fc;"
-                        ></i>
-                        Time Series & Prophet
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects">
-
-            <div class="section-header">
-                <h3 data-key="sec_projects">
-                    My Projects
-                </h3>
-            </div>
-
-            <div class="projects-grid">
-
-                <!-- Project 1 -->
-                <div class="project-card">
-
-                    <div>
-                        <div class="project-number">
-                            01 / Python
-                        </div>
-
-                        <div
-                            class="project-title"
-                            data-key="p1_title"
-                        >
-                            King Khalid International Airport Flights
-                            Data Analysis
-                        </div>
-
-                        <div
-                            class="project-desc"
-                            data-key="p1_desc"
-                        >
-                            Python analysis on King Khalid International
-                            Airport flight data to uncover operational
-                            trends and patterns.
-                        </div>
-                    </div>
-
-                    <a
-                        href="https://github.com/NorahAlomair/King-Khalid-International-Airport-Flights-Data-Analysis"
-                        class="github-link"
-                        target="_blank"
-                    >
-                        <i class="fab fa-github"></i>
-                        GitHub Repo
-                    </a>
-
-                </div>
-
-
-                <!-- Project 2 -->
-                <div class="project-card">
-
-                    <div>
-                        <div class="project-number">
-                            02 / Power BI
-                        </div>
-
-                        <div
-                            class="project-title"
-                            data-key="p2_title"
-                        >
-                            Riyadh Metro Analysis
-                        </div>
-
-                        <div
-                            class="project-desc"
-                            data-key="p2_desc"
-                        >
-                            Interactive Power BI dashboard & analysis
-                            of Riyadh Metro stations and passenger flows.
-                        </div>
-                    </div>
-
-                    <a
-                        href="https://github.com/NorahAlomair/Riyadh-Metro-Power-BI"
-                        class="github-link"
-                        target="_blank"
-                    >
-                        <i class="fab fa-github"></i>
-                        GitHub Repo
-                    </a>
-
-                </div>
-
-
-                <!-- Project 3 -->
-                <div class="project-card">
-
-                    <div>
-                        <div class="project-number">
-                            03 / Power BI
-                        </div>
-
-                        <div
-                            class="project-title"
-                            data-key="p3_title"
-                        >
-                            Saudi Jadarah Job Data 2025
-                        </div>
-
-                        <div
-                            class="project-desc"
-                            data-key="p3_desc"
-                        >
-                            Power BI dashboard analyzing Saudi Jadarah
-                            job market trends and employment data for 2025.
-                        </div>
-                    </div>
-
-                    <a
-                        href="https://github.com/NorahAlomair/Power-BI-Saudi-Jadarah-Job-Data-2025"
-                        class="github-link"
-                        target="_blank"
-                    >
-                        <i class="fab fa-github"></i>
-                        GitHub Repo
-                    </a>
-
-                </div>
-
-
-                <!-- Project 4 -->
-                <div class="project-card">
-
-                    <div>
-                        <div class="project-number">
-                            04 / SQL
-                        </div>
-
-                        <div
-                            class="project-title"
-                            data-key="p4_title"
-                        >
-                            Real Estate Analysis Riyadh
-                        </div>
-
-                        <div
-                            class="project-desc"
-                            data-key="p4_desc"
-                        >
-                            In-depth data analysis of Riyadh real estate
-                            properties using advanced SQL queries.
-                        </div>
-                    </div>
-
-                    <a
-                        href="https://github.com/NorahAlomair/SQL-Real-Estate-Analysis-Riyadh"
-                        class="github-link"
-                        target="_blank"
-                    >
-                        <i class="fab fa-github"></i>
-                        GitHub Repo
-                    </a>
-
-                </div>
-
-
-                <!-- Project 5 -->
-                <div class="project-card">
-
-                    <div>
-                        <div class="project-number">
-                            05 / Power BI
-                        </div>
-
-                        <div
-                            class="project-title"
-                            data-key="p5_title"
-                        >
-                            Outpatient Clinic Data KFSH Q1 2025
-                        </div>
-
-                        <div
-                            class="project-desc"
-                            data-key="p5_desc"
-                        >
-                            Interactive Power BI dashboard analyzing
-                            outpatient clinic operations at King Faisal
-                            Specialist Hospital.
-                        </div>
-                    </div>
-
-                    <a
-                        href="https://github.com/NorahAlomair/NorahAlomair-outpatient-clinic-data-at-King-Faisal-Specialist-Hospital-Research-Center-Q1-2025"
-                        class="github-link"
-                        target="_blank"
-                    >
-                        <i class="fab fa-github"></i>
-                        GitHub Repo
-                    </a>
-
-                </div>
-
-
-                <!-- Project 6 -->
-                <div class="project-card">
-
-                    <div>
-                        <div class="project-number">
-                            06 / Python & Forecasting
-                        </div>
-
-                        <div
-                            class="project-title"
-                            data-key="p6_title"
-                        >
-                            McDonald's Stock Data Analysis
-                        </div>
-
-                        <div
-                            class="project-desc"
-                            data-key="p6_desc"
-                        >
-                            Python analysis and stock price forecasting
-                            using Meta's Prophet model for time series
-                            prediction.
-                        </div>
-                    </div>
-
-                    <a
-                        href="https://github.com/NorahAlomair/McDonald-s-Stock-Data-Analysis"
-                        class="github-link"
-                        target="_blank"
-                    >
-                        <i class="fab fa-github"></i>
-                        GitHub Repo
-                    </a>
-
-                </div>
-
-
-                <!-- Project 7 - Graduation Project -->
-                <div class="project-card">
-
-                    <div>
-                        <div class="project-number">
-                            07 / AI & Computer Vision
-                        </div>
-
-                        <div
-                            class="project-title"
-                            data-key="p7_title"
-                        >
-                            Graduation Project - EatWise
-                        </div>
-
-                        <div
-                            class="project-desc"
-                            data-key="p7_desc"
-                        >
-                            AI-powered mobile application that helps users
-                            make healthier food choices through personalized
-                            meal recommendations, calorie tracking, grocery
-                            product recognition, and health alerts using
-                            Artificial Intelligence and Computer Vision.
-                        </div>
-                    </div>
-
-                    <a
-                        href="https://github.com/NorahAlomair/-Graduation-Project-EatWise-AI-Powered-Nutrition-App"
-                        class="github-link"
-                        target="_blank"
-                    >
-                        <i class="fab fa-github"></i>
-                        GitHub Repo
-                    </a>
-
-                </div>
-
-            </div>
-        </section>
-
+<div class="glow-1"></div>
+<div class="glow-2"></div>
+
+<nav>
+  <div class="logo" data-key="nav_logo">NORAH ALOMAIR</div>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#about" data-key="nav_about">About</a></li>
+      <li><a href="#skills" data-key="nav_skills">Skills</a></li>
+      <li><a href="#experience" data-key="nav_experience">Experience</a></li>
+      <li><a href="#education" data-key="nav_education">Education</a></li>
+      <li><a href="#projects" data-key="nav_projects">Projects</a></li>
+      <li><a href="#certifications" data-key="nav_certs">Certifications</a></li>
+    </ul>
+    <button class="btn-lang" onclick="toggleLanguage()"><i class="fas fa-globe"></i><span id="lang-text">العربية</span></button>
+    <a href="#about" class="btn-contact" data-key="btn_get_in_touch">Get In Touch</a>
+  </div>
+</nav>
+
+<div class="container">
+
+<section class="hero" id="about">
+  <span class="greeting-badge" data-key="hero_badge">Data & Analytics Enthusiast</span>
+  <h1 data-key="hero_title">Hi, I'm Norah</h1>
+  <h2 data-key="hero_subtitle">Turning raw data into impactful, data-driven insights.</h2>
+  <p data-key="hero_desc">Turning raw data into impactful, data-driven insights. I am passionate about the data field in all its aspects, including data engineering and data analytics. I focus on transforming data into meaningful insights that support decision-making. I have hands-on experience with tools and technologies such as Python, SQL, Power BI, Excel, and data visualization. I apply my skills through real-world projects, working on data collection, processing, structuring, and analysis to uncover patterns and deliver insights that solve practical problems. I aim to contribute effectively within the data field.</p>
+  <div class="hero-actions" id="reach-me">
+    <a href="Norah Alomair resume-.pdf" download class="btn-download-cv"><i class="fas fa-file-arrow-down"></i><span data-key="btn_cv">Download CV</span></a>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/norah-alomair-6a0846210" class="social-btn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://github.com/NorahAlomair" class="social-btn" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="mailto:nouraalomair321@gmail.com" class="social-btn" title="Email"><i class="far fa-envelope"></i></a>
     </div>
+  </div>
+</section>
 
+<section id="skills">
+  <div class="section-header"><h3 data-key="sec_skills">Skills & Tools</h3></div>
+  <div class="skills-card"><div class="skills-grid">
+    <div class="skill-tag"><i class="fab fa-python" style="color:#3776AB;"></i>Python</div>
+    <div class="skill-tag"><i class="fas fa-database" style="color:#00758F;"></i>SQL</div>
+    <div class="skill-tag"><i class="fas fa-chart-bar" style="color:#F2C811;"></i>Power BI</div>
+    <div class="skill-tag"><i class="far fa-file-excel" style="color:#1D6F42;"></i>Excel</div>
+    <div class="skill-tag"><i class="fas fa-chart-line" style="color:#c084fc;"></i><span data-key="skill_vis">Data Visualization</span></div>
+    <div class="skill-tag"><i class="fas fa-brain" style="color:#c084fc;"></i>Time Series & Prophet</div>
+    <div class="skill-tag"><i class="fas fa-gears" style="color:#c084fc;"></i><span data-key="skill_auto">Automation (n8n)</span></div>
+    <div class="skill-tag"><i class="fas fa-broom" style="color:#c084fc;"></i><span data-key="skill_clean">Data Cleaning (Pandas)</span></div>
+    <div class="skill-tag"><i class="fas fa-plug" style="color:#c084fc;"></i><span data-key="skill_api">API Integration</span></div>
+  </div></div>
+</section>
 
-    <!-- Footer -->
-    <footer>
+<section id="experience">
+  <div class="section-header"><h3 data-key="sec_experience">Experience</h3></div>
+  <div class="experience-card">
+    <div class="exp-head">
+      <div>
+        <div class="exp-role" data-key="exp_role">Data Science Trainee</div>
+        <div class="exp-company" data-key="exp_company">Osarh</div>
+      </div>
+      <div class="exp-date" data-key="exp_date">Jun 2026 – Sep 2026</div>
+    </div>
+    <ul class="insight-list exp-list">
+      <li data-key="exp_b1">Cleaned and organized customer Q&amp;A data for an AI customer service assistant using Python (Pandas) and Excel: removed duplicates, handled missing values, and standardized text.</li>
+      <li data-key="exp_b2">Built an Excel-driven n8n workflow that prepares outreach emails for integration partners, reducing repetitive manual work.</li>
+      <li data-key="exp_b3">Integrated third-party services with the platform via APIs: reviewed documentation, configured connections, and handled requests and responses.</li>
+      <li data-key="exp_b4">Tested website functionality, documented issues, and updated a client website through the company's internal system.</li>
+    </ul>
+  </div>
+</section>
 
-        <div data-key="footer_copy">
-            © 2026 Norah Alomair . All rights reserved.
+<section id="education">
+  <div class="section-header"><h3 data-key="sec_education">Education</h3></div>
+  <div class="edu-grid">
+    <div class="experience-card">
+      <div class="exp-head">
+        <div>
+          <div class="exp-role" data-key="edu1_degree">Bachelor of Science in Data Science</div>
+          <div class="exp-company" data-key="edu1_uni">Prince Musaid bin Abdulrahman University</div>
         </div>
-
-        <div data-key="footer_built">
-            Built with ❤️
+        <div class="exp-date" data-key="edu1_date">Mar 2023 – Jan 2026</div>
+      </div>
+    <p class="edu-note" data-key="edu1_note">Graduation project: EatWise, an AI-powered nutrition app.</p>
+    </div>
+    <div class="experience-card">
+      <div class="exp-head">
+        <div>
+          <div class="exp-role" data-key="edu2_degree">Diploma of Education – Information Technology</div>
+          <div class="exp-company" data-key="edu2_uni">Princess Nourah Bint Abdulrahman University</div>
         </div>
-
-    </footer>
-
-
-    <!-- JavaScript For Language Toggle -->
-    <script>
-
-        const translations = {
-
-            en: {
-
-                nav_logo: "NORAH ALOMAIR",
-
-                nav_about: "About",
-
-                nav_skills: "Skills",
-
-                nav_projects: "Projects",
-
-                btn_get_in_touch: "Get In Touch",
-
-                hero_badge: "Data & Analytics Enthusiast",
-
-                hero_title: "Hi, I'm Norah",
-
-                hero_subtitle:
-                    "Turning raw data into impactful, data-driven insights.",
-
-                hero_desc:
-                    "Turning raw data into impactful, data-driven insights. I am passionate about the data field in all its aspects, including data engineering and data analytics. I focus on transforming data into meaningful insights that support decision-making. I have hands-on experience with tools and technologies such as Python, SQL, Power BI, Excel, and data visualization. I apply my skills through real-world projects, working on data collection, processing, structuring, and analysis to uncover patterns and deliver insights that solve practical problems. I aim to contribute effectively within the data field.",
-
-                btn_cv: "Download CV",
-
-                sec_skills: "Skills & Tools",
-
-                skill_vis: "Data Visualization",
-
-                sec_projects: "My Projects",
-
-                p1_title:
-                    "King Khalid International Airport Flights Data Analysis",
-
-                p1_desc:
-                    "Python analysis on King Khalid International Airport flight data to uncover operational trends and patterns.",
-
-                p2_title:
-                    "Riyadh Metro Analysis",
-
-                p2_desc:
-                    "Interactive Power BI dashboard & analysis of Riyadh Metro stations and passenger flows.",
-
-                p3_title:
-                    "Saudi Jadarah Job Data 2025",
-
-                p3_desc:
-                    "Power BI dashboard analyzing Saudi Jadarah job market trends and employment data for 2025.",
-
-                p4_title:
-                    "Real Estate Analysis Riyadh",
-
-                p4_desc:
-                    "In-depth data analysis of Riyadh real estate properties using advanced SQL queries.",
-
-                p5_title:
-                    "Outpatient Clinic Data KFSH Q1 2025",
-
-                p5_desc:
-                    "Interactive Power BI dashboard analyzing outpatient clinic operations at King Faisal Specialist Hospital.",
-
-                p6_title:
-                    "McDonald's Stock Data Analysis",
-
-                p6_desc:
-                    "Python analysis and stock price forecasting using Meta's Prophet model for time series prediction.",
-
-                p7_title:
-                    "Graduation Project - EatWise",
-
-                p7_desc:
-                    "AI-powered mobile application that helps users make healthier food choices through personalized meal recommendations, calorie tracking, grocery product recognition, and health alerts using Artificial Intelligence and Computer Vision.",
-
-                footer_copy:
-                    "© 2026 Norah Alomair . All rights reserved.",
-
-                footer_built:
-                    "Built with ❤️"
-
-            },
-
-
-            ar: {
-
-                nav_logo:
-                    "نورة العميّر",
-
-                nav_about:
-                    "نبذة عني",
-
-                nav_skills:
-                    "المهارات",
-
-                nav_projects:
-                    "المشاريع",
-
-                btn_get_in_touch:
-                    "تواصل معي",
-
-                hero_badge:
-                    "شغوفة بالبيانات والتحليل",
-
-                hero_title:
-                    "أهلاً، أنا نورة",
-
-                hero_subtitle:
-                    "تحويل البيانات الخام إلى رؤى قيّمة تدعم اتخاذ القرار.",
-
-                hero_desc:
-                    "تحويل البيانات الخام إلى رؤى قيّمة تدعم اتخاذ القرار. أنا شغوفة بمجال البيانات بجميع جوانبه، بما في ذلك هندسة البيانات وتحليل البيانات. أركز على تحويل البيانات إلى حلول ورؤى مفهومة تسهم في دعم القرارات. لدي خبرة عملية في التعامل مع أدوات وتقنيات متعددة مثل Python و SQL و Power BI و Excel وتمثيل البيانات. أقوم بتطبيق مهاراتي من خلال مشاريع واقعية تشمل جمع البيانات، معالجتها، تنظيمها، وتحليلها لاستكشاف الأنماط وتقديم حلول مشكلات عملية. أطمح للمساهمة بشكل فعال وملموس في مجال البيانات.",
-
-                btn_cv:
-                    "تحميل السيرة الذاتية",
-
-                sec_skills:
-                    "المهارات والأدوات",
-
-                skill_vis:
-                    "تمثيل البيانات",
-
-                sec_projects:
-                    "مشاريعي",
-
-                p1_title:
-                    "تحليل بيانات رحلات مطار الملك خالد الدولي",
-
-                p1_desc:
-                    "تحليل باستخدام Python لبيانات الرحلات في مطار الملك خالد الدولي لاستكشاف الأنماط والاتجاهات التشغيلية.",
-
-                p2_title:
-                    "تحليل مشروع مترو الرياض",
-
-                p2_desc:
-                    "لوحة تحكم تفاعلية عبر Power BI لتحليل حركة الركاب ومحطات مترو الرياض.",
-
-                p3_title:
-                    "تحليل بيانات الوظائف في منصة جدارات 2025",
-
-                p3_desc:
-                    "لوحة Power BI تحلل اتجاهات سوق العمل والفرص الوظيفية في المملكة عبر منصة جدارات.",
-
-                p4_title:
-                    "تحليل العقارات في مدينة الرياض",
-
-                p4_desc:
-                    "تحليل شامل وعميق للعقارات في الرياض باستخدام استعلامات SQL المتقدمة.",
-
-                p5_title:
-                    "بيانات العيادات الخارجية بمستشفى الملك فيصل التخصصي Q1 2025",
-
-                p5_desc:
-                    "لوحة تحكم Power BI تفاعلية لتحليل عمليات وأداء العيادات الخارجية في المستشفى.",
-
-                p6_title:
-                    "تحليل و تنبؤ أسهم ماكدونالدز",
-
-                p6_desc:
-                    "تحليل بواسطة Python والتنبؤ بأسعار الأسهم باستخدام نموذج Prophet للسلاسل الزمنية.",
-
-                p7_title:
-                    "مشروع التخرج - EatWise",
-
-                p7_desc:
-                    "تطبيق جوال مدعوم بالذكاء الاصطناعي يساعد المستخدمين على اتخاذ خيارات غذائية صحية من خلال توصيات وجبات مخصصة، وتتبع السعرات الحرارية، والتعرف على المنتجات الغذائية، والتنبيهات الصحية باستخدام الذكاء الاصطناعي والرؤية الحاسوبية.",
-
-                footer_copy:
-                    "© 2026 نورة العميّر . جميع الحقوق محفوظة.",
-
-                footer_built:
-                    "صُنع بـ ❤️"
-
-            }
-
-        };
-
-
-        let currentLang = 'en';
-
-
-        function toggleLanguage() {
-
-            currentLang =
-                currentLang === 'en' ? 'ar' : 'en';
-
-            document.documentElement.lang =
-                currentLang;
-
-            document.documentElement.dir =
-                currentLang === 'ar' ? 'rtl' : 'ltr';
-
-            document.getElementById('lang-text').innerText =
-                currentLang === 'en'
-                    ? 'العربية'
-                    : 'English';
-
-
-            document
-                .querySelectorAll('[data-key]')
-                .forEach(elem => {
-
-                    const key =
-                        elem.getAttribute('data-key');
-
-                    if (
-                        translations[currentLang][key]
-                    ) {
-
-                        elem.innerText =
-                            translations[currentLang][key];
-
-                    }
-
-                });
-
-        }
-
-    </script>
-
+        <div class="exp-date" data-key="edu2_date">May 2018 – Aug 2020</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="section-header"><h3 data-key="sec_projects">My Projects</h3></div>
+
+  <!--
+    HOW TO USE:
+    - Add data-images="assets/a.png,assets/b.png" on a .project-card to show a clickable thumbnail + lightbox (comma-separated for several images).
+    - Report button: <a class="report-link" href="assets/report.pdf" target="_blank" rel="noopener">
+    - Delete a button or the data-images attribute if a project doesn't need it.
+  -->
+
+  <h4 class="group-title"><i class="fas fa-chart-bar"></i><span data-key="grp_powerbi">Power BI Dashboards</span></h4>
+  <div class="projects-grid">
+    <div class="project-card" data-images="assets/metro-1.png">
+      <div>
+        <div class="project-number">Power BI</div>
+        <div class="project-title" data-key="p2_title">Riyadh Metro Analysis</div>
+        <div class="project-desc" data-key="p2_desc">Interactive Power BI dashboard &amp; map analyzing Riyadh Metro routes, stations, and station types.</div>
+        <div class="project-insights">
+          <p class="insight-goal"><strong data-key="lbl_goal">Goal:</strong> <span data-key="p2_goal">Analyze the Riyadh Metro network through an interactive Power BI dashboard and map, covering routes, stations, station types, and interchange stations.</span></p>
+          <span class="insight-label" data-key="lbl_insights">Key insights</span>
+          <ul class="insight-list">
+            <li data-key="p2_i1">The network has 6 routes and 83 distinct stations (94 route stops, since interchange stations count once per route); the Blue (25) and Orange (22) routes hold half of all route stops.</li>
+            <li data-key="p2_i2">Elevated stations are the most common type (40 of 94 route stops, ~43%), followed by deep underground (38); the Yellow route is the shortest (9 stops) and ends at the airport terminals.</li>
+            <li data-key="p2_i3">Ten stations are interchanges: the Financial Center connects 3 routes, and nine others (including stc and Al-Hamra) connect 2 routes each.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="project-actions">
+        <a href="https://github.com/NorahAlomair/Riyadh-Metro-Power-BI" class="github-link" target="_blank" rel="noopener"><i class="fab fa-github"></i>GitHub Repo</a>
+        <a class="report-link" href="assets/riyadh-metro-dashboard.pdf" target="_blank" rel="noopener"><i class="far fa-file-pdf"></i><span data-key="btn_report">Report (PDF)</span></a>
+      </div>
+    </div>
+    <div class="project-card" data-images="assets/jadarah-1.png">
+      <div>
+        <div class="project-number">Power BI</div>
+        <div class="project-title" data-key="p3_title">Saudi Jadarah Job Data 2025</div>
+        <div class="project-desc" data-key="p3_desc">Power BI dashboard analyzing Saudi Jadarah job market trends and employment data for 2025.</div>
+        <div class="project-insights">
+          <p class="insight-goal"><strong data-key="lbl_goal">Goal:</strong> <span data-key="p3_goal">Analyze job postings from the public, private, and semi-government sectors on the Jadarah platform in 2025 to understand demand by region and job title.</span></p>
+          <span class="insight-label" data-key="lbl_insights">Key insights</span>
+          <ul class="insight-list">
+            <li data-key="p3_i1">140,624 jobs were posted across 13 regions and 328 cities in 2025, with the private sector accounting for 88% (public 10%, semi-government 2%).</li>
+            <li data-key="p3_i2">Makkah (44,106) and Riyadh (36,967) hold 58% of all jobs, and with the Eastern Province (19,129) and Madinah (13,942) the top four regions reach 81%.</li>
+            <li data-key="p3_i3">Demand centers on frontline and service roles: security guard (13,347), nursing specialist (10,233), customer service specialist (7,248), seller (6,992), and cashier (5,521); the top 10 of 659 titles make up 42% of jobs.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="project-actions">
+        <a href="https://github.com/NorahAlomair/Power-BI-Saudi-Jadarah-Job-Data-2025" class="github-link" target="_blank" rel="noopener"><i class="fab fa-github"></i>GitHub Repo</a>
+        <a class="report-link" href="assets/jadarah-dashboard.pdf" target="_blank" rel="noopener"><i class="far fa-file-pdf"></i><span data-key="btn_report">Report (PDF)</span></a>
+      </div>
+    </div>
+    <div class="project-card" data-images="assets/kfsh-1.png">
+      <div>
+        <div class="project-number">Power BI</div>
+        <div class="project-title" data-key="p5_title">Outpatient Clinic Data KFSH Q1 2025</div>
+        <div class="project-desc" data-key="p5_desc">Interactive Power BI dashboard analyzing outpatient clinic operations at King Faisal Specialist Hospital.</div>
+        <div class="project-insights">
+          <p class="insight-goal"><strong data-key="lbl_goal">Goal:</strong> <span data-key="p5_goal">Analyze outpatient visits at King Faisal Specialist Hospital &amp; Research Centre in Q1 2025 across four departments, by nationality, gender, facility, and month.</span></p>
+          <span class="insight-label" data-key="lbl_insights">Key insights</span>
+          <ul class="insight-list">
+            <li data-key="p5_i1">The four departments recorded 227,845 outpatient visits in Q1 2025: Oncology 49%, Heart Center 25%, Organ Transplant 16%, and Neurosciences 10%.</li>
+            <li data-key="p5_i2">Saudi patients make up 97% of visits (221,078 vs 6,767 non-Saudi), and women account for slightly more than men (117,307 vs 110,531).</li>
+            <li data-key="p5_i3">Riyadh handles 77% of visits, followed by Jeddah (19%) and Madinah (4%), and monthly volume falls from 37% in January to 28% in March.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="project-actions">
+        <a href="https://github.com/NorahAlomair/NorahAlomair-outpatient-clinic-data-at-King-Faisal-Specialist-Hospital-Research-Center-Q1-2025" class="github-link" target="_blank" rel="noopener"><i class="fab fa-github"></i>GitHub Repo</a>
+        <a class="report-link" href="assets/kfsh-outpatient-dashboard.pdf" target="_blank" rel="noopener"><i class="far fa-file-pdf"></i><span data-key="btn_report">Report (PDF)</span></a>
+      </div>
+    </div>
+  </div>
+
+  <h4 class="group-title"><i class="fas fa-code"></i><span data-key="grp_pysql">Python &amp; SQL Analysis</span></h4>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div>
+        <div class="project-number">Python</div>
+        <div class="project-title" data-key="p1_title">King Khalid International Airport Flights Data Analysis</div>
+        <div class="project-desc" data-key="p1_desc">Python analysis on King Khalid International Airport flight data to uncover operational trends and patterns.</div>
+        <div class="project-insights">
+          <p class="insight-goal"><strong data-key="lbl_goal">Goal:</strong> <span data-key="p1_goal">Understand airline, aircraft, and scheduling patterns at King Khalid International Airport to support operational planning.</span></p>
+          <span class="insight-label" data-key="lbl_insights">Key insights</span>
+          <ul class="insight-list">
+            <li data-key="p1_i1">Three airlines dominate the airport: Saudi Arabian (60,886 flights), flynas (33,935), and flyadeal (24,835) together operate ~78% of all 153,308 flights.</li>
+            <li data-key="p1_i2">Traffic peaks in the evening: 18:00 is the busiest hour with 8,142 flights, followed closely by 20:00 (8,131) and 16:00 (7,904).</li>
+            <li data-key="p1_i3">Jeddah is the top destination with 27,938 flights (~18% of the total), ahead of Dubai (12,333) and Cairo (10,003).</li>
+          </ul>
+        </div>
+      </div>
+      <div class="project-actions">
+        <a href="https://github.com/NorahAlomair/King-Khalid-International-Airport-Flights-Data-Analysis" class="github-link" target="_blank" rel="noopener"><i class="fab fa-github"></i>GitHub Repo</a>
+        <a class="report-link" href="assets/airport-analysis-report.pdf" target="_blank" rel="noopener"><i class="far fa-file-pdf"></i><span data-key="btn_report">Report (PDF)</span></a>
+      </div>
+    </div>
+    <div class="project-card">
+      <div>
+        <div class="project-number">Python &amp; Forecasting</div>
+        <div class="project-title" data-key="p6_title">McDonald's Stock Data Analysis</div>
+        <div class="project-desc" data-key="p6_desc">Python analysis and stock price forecasting using Meta's Prophet model for time series prediction.</div>
+        <div class="project-insights">
+          <p class="insight-goal"><strong data-key="lbl_goal">Goal:</strong> <span data-key="p6_goal">Analyze McDonald's (MCD) daily stock data from 2000 to 2026 to understand price trends and risk, measure the impact of the 2008 crisis and COVID-19, and forecast future trends with Prophet.</span></p>
+          <span class="insight-label" data-key="lbl_insights">Key insights</span>
+          <ul class="insight-list">
+            <li data-key="p6_i1">Strong long-term growth: $1 invested in 2000 grew to nearly 15× by 2026, as the closing price rose from $6.77 (Mar 2003) to $319.65 (Dec 2025).</li>
+            <li data-key="p6_i2">Resilient through crises: daily volatility fell after 2008 (0.0176 → 0.0126) and barely changed after COVID-19 (0.0143 → 0.0142), even though March 2020 produced both the best day (+18.13%) and worst day (−15.88%).</li>
+            <li data-key="p6_i3">Forecast: the Prophet model projects the upward trend continuing about five years beyond January 2026, with a widening confidence interval showing that long-term predictions capture the trend rather than exact prices.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="project-actions">
+        <a href="https://github.com/NorahAlomair/McDonald-s-Stock-Data-Analysis" class="github-link" target="_blank" rel="noopener"><i class="fab fa-github"></i>GitHub Repo</a>
+        <a class="report-link" href="assets/mcdonalds-analysis-report.pdf" target="_blank" rel="noopener"><i class="far fa-file-pdf"></i><span data-key="btn_report">Report (PDF)</span></a>
+      </div>
+    </div>
+    <div class="project-card">
+      <div>
+        <div class="project-number">SQL</div>
+        <div class="project-title" data-key="p4_title">Real Estate Analysis Riyadh</div>
+        <div class="project-desc" data-key="p4_desc">In-depth data analysis of Riyadh real estate properties using advanced SQL queries.</div>
+        <div class="project-insights">
+          <p class="insight-goal"><strong data-key="lbl_goal">Goal:</strong> <span data-key="p4_goal">Analyze 1,200 Riyadh real estate listings using SQL to understand the market across property types, districts, price ranges, and agencies, and support future decision-making.</span></p>
+          <span class="insight-label" data-key="lbl_insights">Key insights</span>
+          <ul class="insight-list">
+            <li data-key="p4_i1">The market is dominated by apartments (32.9%), floors (32.4%), and villas (26.7%), which together make up ~92% of listings, with an average price of SAR 1,669,415.</li>
+            <li data-key="p4_i2">Villas drive market value: they are 26.7% of listings but ~55% of total sales value (about SAR 1.1 billion of 2.0 billion), with a top price of SAR 27 million.</li>
+            <li data-key="p4_i3">Badr has the most listings (130), followed by Shubra (89) and Al-Rimal (88), while luxury listings (top 10% by price) concentrate in Al-Narjis (23) and Al-Yasmin (13), then Al-Mahdiyah and Al-Malqa (10 each).</li>
+          </ul>
+        </div>
+      </div>
+      <div class="project-actions">
+        <a href="https://github.com/NorahAlomair/SQL-Real-Estate-Analysis-Riyadh" class="github-link" target="_blank" rel="noopener"><i class="fab fa-github"></i>GitHub Repo</a>
+        <a class="report-link" href="assets/real-estate-sql-report.pdf" target="_blank" rel="noopener"><i class="far fa-file-pdf"></i><span data-key="btn_report">Report (PDF)</span></a>
+      </div>
+    </div>
+  </div>
+
+  <h4 class="group-title"><i class="fas fa-brain"></i><span data-key="grp_ai">AI &amp; Computer Vision</span></h4>
+  <div class="projects-grid">
+    <div class="project-card wide" data-images="assets/eatwise-poster.png">
+      <div>
+        <div class="project-number">AI &amp; Computer Vision</div>
+        <div class="project-title" data-key="p7_title">Graduation Project - EatWise</div>
+        <div class="project-desc" data-key="p7_desc">AI-powered mobile app that helps users make healthier food choices through personalized meal recommendations, calorie tracking, and health alerts.</div>
+        <div class="project-insights">
+          <p class="insight-goal"><strong data-key="lbl_goal">Goal:</strong> <span data-key="p7_goal">Help users make healthier food choices and reduce food waste by combining AI and computer vision with personalized nutrition guidance.</span></p>
+          <span class="insight-label" data-key="lbl_insights">Key insights</span>
+          <ul class="insight-list">
+            <li data-key="p7_i1">An AI-powered mobile app that recognizes grocery products with YOLOv8 and CLIP, then delivers personalized meal recommendations, calorie tracking, and alerts for allergies and health conditions.</li>
+            <li data-key="p7_i2">Graduation project built by a team of six at Prince Musaid bin Abdulrahman University, using Flutter for the app, FastAPI for the backend, and SQLite for the database.</li>
+            <li data-key="p7_i3">My role: I was responsible for the project's data, including collecting and organizing it.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="project-actions">
+        <a href="https://github.com/NorahAlomair/-Graduation-Project-EatWise-AI-Powered-Nutrition-App" class="github-link" target="_blank" rel="noopener"><i class="fab fa-github"></i>GitHub Repo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="certifications">
+  <div class="section-header"><h3 data-key="sec_certs">Certifications</h3></div>
+  <!-- To link a certificate: wrap its .cert-name in <a href="CREDENTIAL_URL" target="_blank" rel="noopener"> -->
+  <div class="cert-grid">
+    <div class="experience-card">
+      <h4 class="cert-title"><i class="fas fa-chart-bar"></i><span data-key="cg1">Data Analysis &amp; BI</span></h4>
+      <ul class="cert-list">
+        <li><span class="cert-name" data-key="c1_name">Power BI</span><span class="cert-meta" data-key="c1_meta">Satr Platform · Jun 2025</span></li>
+        <li><span class="cert-name" data-key="c2_name">Exploratory Data Analysis</span><span class="cert-meta" data-key="c2_meta">Satr Platform · Jun 2024</span></li>
+        <li><span class="cert-name" data-key="c3_name">Project Based Learning Programme in Data Analysis</span><span class="cert-meta" data-key="c3_meta">IBM SkillsBuild Student Ambassador Program · Oct 2024</span></li>
+      </ul>
+    </div>
+    <div class="experience-card">
+      <h4 class="cert-title"><i class="fas fa-code"></i><span data-key="cg2">Programming &amp; SQL</span></h4>
+      <ul class="cert-list">
+        <li><span class="cert-name" data-key="c4_name">Introduction to SQL</span><span class="cert-meta" data-key="c4_meta">DataCamp · Jun 2025</span></li>
+        <li><span class="cert-name" data-key="c5_name">Introduction to Data Science in Python</span><span class="cert-meta" data-key="c5_meta">Coursera · Dec 2025</span></li>
+      </ul>
+    </div>
+    <div class="experience-card">
+      <h4 class="cert-title"><i class="fas fa-brain"></i><span data-key="cg3">AI &amp; Mathematics</span></h4>
+      <ul class="cert-list">
+        <li><span class="cert-name" data-key="c6_name">Artificial Intelligence Concepts and Advanced Applications</span><span class="cert-meta" data-key="c6_meta">SDAIA · Aug 2025</span></li>
+        <li><span class="cert-name" data-key="c7_name">Mathematics for Machine Learning and Data Science</span><span class="cert-meta" data-key="c7_meta">Coursera · Dec 2025</span></li>
+        <li><span class="cert-name" data-key="c8_name">Linear Algebra for Machine Learning and Data Science</span><span class="cert-meta" data-key="c8_meta">Coursera · Dec 2025</span></li>
+      </ul>
+    </div>
+    <div class="experience-card">
+      <h4 class="cert-title"><i class="fas fa-scale-balanced"></i><span data-key="cg4">Data-Driven Decisions &amp; Data Generation</span></h4>
+      <ul class="cert-list">
+        <li><span class="cert-name" data-key="c9_name">Data Generation for Analysis and Model Training</span><span class="cert-meta" data-key="c9_meta">SAAI · Jun 2026</span></li>
+        <li><span class="cert-name" data-key="c10_name">Data-Driven Decision Making</span><span class="cert-meta" data-key="c10_meta">Professional Association for Statisticians &amp; Data Scientists · Jun 2026</span></li>
+        <li><span class="cert-name" data-key="c11_name">EYOUTH Learning Plan</span><span class="cert-meta" data-key="c11_meta">IBM · Nov 2025</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="cert-more">
+    <a class="github-link" href="https://www.linkedin.com/in/norah-alomair-6a0846210" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i><span data-key="cert_link">View all credentials on LinkedIn</span></a>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  <div data-key="footer_copy">© 2026 Norah Alomair . All rights reserved.</div>
+  <div data-key="footer_built">Built with ❤️</div>
+</footer>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Project preview">
+  <button type="button" class="lb-btn lb-close" id="lb-close" aria-label="Close"><i class="fas fa-xmark"></i></button>
+  <button type="button" class="lb-btn lb-prev" id="lb-prev" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+  <img class="lb-img" id="lb-img" alt="">
+  <button type="button" class="lb-btn lb-next" id="lb-next" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
+  <div class="lb-caption" id="lb-caption"></div>
+</div>
+
+<script>
+const translations={
+en:{nav_logo:"NORAH ALOMAIR",nav_about:"About",nav_skills:"Skills",nav_projects:"Projects",btn_get_in_touch:"Get In Touch",hero_badge:"Data & Analytics Enthusiast",hero_title:"Hi, I'm Norah",hero_subtitle:"Turning raw data into impactful, data-driven insights.",hero_desc:"Turning raw data into impactful, data-driven insights. I am passionate about the data field in all its aspects, including data engineering and data analytics. I focus on transforming data into meaningful insights that support decision-making. I have hands-on experience with tools and technologies such as Python, SQL, Power BI, Excel, and data visualization. I apply my skills through real-world projects, working on data collection, processing, structuring, and analysis to uncover patterns and deliver insights that solve practical problems. I aim to contribute effectively within the data field.",btn_cv:"Download CV",sec_skills:"Skills & Tools",skill_vis:"Data Visualization",sec_projects:"My Projects",skill_auto:"Automation (n8n)",skill_clean:"Data Cleaning (Pandas)",skill_api:"API Integration",nav_education:"Education",nav_certs:"Certifications",sec_education:"Education",edu1_degree:"Bachelor of Science in Data Science",edu1_uni:"Prince Musaid bin Abdulrahman University",edu1_date:"Mar 2023 – Jan 2026",edu1_note:"Graduation project: EatWise, an AI-powered nutrition app.",edu2_degree:"Diploma of Education – Information Technology",edu2_uni:"Princess Nourah Bint Abdulrahman University",edu2_date:"May 2018 – Aug 2020",sec_certs:"Certifications",cert_link:"View all credentials on LinkedIn",cg1:"Data Analysis & BI",c1_name:"Power BI",c1_meta:"Satr Platform · Jun 2025",c2_name:"Exploratory Data Analysis",c2_meta:"Satr Platform · Jun 2024",c3_name:"Project Based Learning Programme in Data Analysis",c3_meta:"IBM SkillsBuild Student Ambassador Program · Oct 2024",cg2:"Programming & SQL",c4_name:"Introduction to SQL",c4_meta:"DataCamp · Jun 2025",c5_name:"Introduction to Data Science in Python",c5_meta:"Coursera · Dec 2025",cg3:"AI & Mathematics",c6_name:"Artificial Intelligence Concepts and Advanced Applications",c6_meta:"SDAIA · Aug 2025",c7_name:"Mathematics for Machine Learning and Data Science",c7_meta:"Coursera · Dec 2025",c8_name:"Linear Algebra for Machine Learning and Data Science",c8_meta:"Coursera · Dec 2025",cg4:"Data-Driven Decisions & Data Generation",c9_name:"Data Generation for Analysis and Model Training",c9_meta:"SAAI · Jun 2026",c10_name:"Data-Driven Decision Making",c10_meta:"Professional Association for Statisticians & Data Scientists · Jun 2026",c11_name:"EYOUTH Learning Plan",c11_meta:"IBM · Nov 2025",nav_experience:"Experience",sec_experience:"Experience",exp_role:"Data Science Trainee",exp_company:"Osarh",exp_date:"Jun 2026 – Sep 2026",exp_b1:"Cleaned and organized customer Q&A data for an AI customer service assistant using Python (Pandas) and Excel: removed duplicates, handled missing values, and standardized text.",exp_b2:"Built an Excel-driven n8n workflow that prepares outreach emails for integration partners, reducing repetitive manual work.",exp_b3:"Integrated third-party services with the platform via APIs: reviewed documentation, configured connections, and handled requests and responses.",exp_b4:"Tested website functionality, documented issues, and updated a client website through the company's internal system.",btn_preview:"Preview",btn_report:"Report (PDF)",grp_powerbi:"Power BI Dashboards",grp_pysql:"Python & SQL Analysis",grp_ai:"AI & Computer Vision",lbl_goal:"Goal:",lbl_insights:"Key insights",p2_goal:"Analyze the Riyadh Metro network through an interactive Power BI dashboard and map, covering routes, stations, station types, and interchange stations.",p2_i1:"The network has 6 routes and 83 distinct stations (94 route stops, since interchange stations count once per route); the Blue (25) and Orange (22) routes hold half of all route stops.",p2_i2:"Elevated stations are the most common type (40 of 94 route stops, ~43%), followed by deep underground (38); the Yellow route is the shortest (9 stops) and ends at the airport terminals.",p2_i3:"Ten stations are interchanges: the Financial Center connects 3 routes, and nine others (including stc and Al-Hamra) connect 2 routes each.",p3_goal:"Analyze job postings from the public, private, and semi-government sectors on the Jadarah platform in 2025 to understand demand by region and job title.",p3_i1:"140,624 jobs were posted across 13 regions and 328 cities in 2025, with the private sector accounting for 88% (public 10%, semi-government 2%).",p3_i2:"Makkah (44,106) and Riyadh (36,967) hold 58% of all jobs, and with the Eastern Province (19,129) and Madinah (13,942) the top four regions reach 81%.",p3_i3:"Demand centers on frontline and service roles: security guard (13,347), nursing specialist (10,233), customer service specialist (7,248), seller (6,992), and cashier (5,521); the top 10 of 659 titles make up 42% of jobs.",p4_goal:"Analyze 1,200 Riyadh real estate listings using SQL to understand the market across property types, districts, price ranges, and agencies, and support future decision-making.",p4_i1:"The market is dominated by apartments (32.9%), floors (32.4%), and villas (26.7%), which together make up ~92% of listings, with an average price of SAR 1,669,415.",p4_i2:"Villas drive market value: they are 26.7% of listings but ~55% of total sales value (about SAR 1.1 billion of 2.0 billion), with a top price of SAR 27 million.",p4_i3:"Badr has the most listings (130), followed by Shubra (89) and Al-Rimal (88), while luxury listings (top 10% by price) concentrate in Al-Narjis (23) and Al-Yasmin (13), then Al-Mahdiyah and Al-Malqa (10 each).",p5_goal:"Analyze outpatient visits at King Faisal Specialist Hospital & Research Centre in Q1 2025 across four departments, by nationality, gender, facility, and month.",p5_i1:"The four departments recorded 227,845 outpatient visits in Q1 2025: Oncology 49%, Heart Center 25%, Organ Transplant 16%, and Neurosciences 10%.",p5_i2:"Saudi patients make up 97% of visits (221,078 vs 6,767 non-Saudi), and women account for slightly more than men (117,307 vs 110,531).",p5_i3:"Riyadh handles 77% of visits, followed by Jeddah (19%) and Madinah (4%), and monthly volume falls from 37% in January to 28% in March.",p6_goal:"Analyze McDonald's (MCD) daily stock data from 2000 to 2026 to understand price trends and risk, measure the impact of the 2008 crisis and COVID-19, and forecast future trends with Prophet.",p6_i1:"Strong long-term growth: $1 invested in 2000 grew to nearly 15× by 2026, as the closing price rose from $6.77 (Mar 2003) to $319.65 (Dec 2025).",p6_i2:"Resilient through crises: daily volatility fell after 2008 (0.0176 → 0.0126) and barely changed after COVID-19 (0.0143 → 0.0142), even though March 2020 produced both the best day (+18.13%) and worst day (−15.88%).",p6_i3:"Forecast: the Prophet model projects the upward trend continuing about five years beyond January 2026, with a widening confidence interval showing that long-term predictions capture the trend rather than exact prices.",p7_goal:"Help users make healthier food choices and reduce food waste by combining AI and computer vision with personalized nutrition guidance.",p7_i1:"An AI-powered mobile app that recognizes grocery products with YOLOv8 and CLIP, then delivers personalized meal recommendations, calorie tracking, and alerts for allergies and health conditions.",p7_i2:"Graduation project built by a team of six at Prince Musaid bin Abdulrahman University, using Flutter for the app, FastAPI for the backend, and SQLite for the database.",p7_i3:"My role: I was responsible for the project's data, including collecting and organizing it.",p1_goal:"Understand airline, aircraft, and scheduling patterns at King Khalid International Airport to support operational planning.",p1_i1:"Three airlines dominate the airport: Saudi Arabian (60,886 flights), flynas (33,935), and flyadeal (24,835) together operate ~78% of all 153,308 flights.",p1_i2:"Traffic peaks in the evening: 18:00 is the busiest hour with 8,142 flights, followed closely by 20:00 (8,131) and 16:00 (7,904).",p1_i3:"Jeddah is the top destination with 27,938 flights (~18% of the total), ahead of Dubai (12,333) and Cairo (10,003).",
+p1_title:"King Khalid International Airport Flights Data Analysis",p1_desc:"Python analysis on King Khalid International Airport flight data to uncover operational trends and patterns.",
+p2_title:"Riyadh Metro Analysis",p2_desc:"Interactive Power BI dashboard & map analyzing Riyadh Metro routes, stations, and station types.",
+p3_title:"Saudi Jadarah Job Data 2025",p3_desc:"Power BI dashboard analyzing Saudi Jadarah job market trends and employment data for 2025.",
+p4_title:"Real Estate Analysis Riyadh",p4_desc:"In-depth data analysis of Riyadh real estate properties using advanced SQL queries.",
+p5_title:"Outpatient Clinic Data KFSH Q1 2025",p5_desc:"Interactive Power BI dashboard analyzing outpatient clinic operations at King Faisal Specialist Hospital.",
+p6_title:"McDonald's Stock Data Analysis",p6_desc:"Python analysis and stock price forecasting using Meta's Prophet model for time series prediction.",
+p7_title:"Graduation Project - EatWise",p7_desc:"AI-powered mobile app that helps users make healthier food choices through personalized meal recommendations, calorie tracking, and health alerts.",
+footer_copy:"© 2026 Norah Alomair . All rights reserved.",footer_built:"Built with ❤️"},
+ar:{nav_logo:"نورة العميّر",nav_about:"نبذة عني",nav_skills:"المهارات",nav_projects:"المشاريع",btn_get_in_touch:"تواصل معي",hero_badge:"شغوفة بالبيانات والتحليل",hero_title:"أهلاً، أنا نورة",hero_subtitle:"تحويل البيانات الخام إلى رؤى قيّمة تدعم اتخاذ القرار.",hero_desc:"تحويل البيانات الخام إلى رؤى قيّمة تدعم اتخاذ القرار. أنا شغوفة بمجال البيانات بجميع جوانبه، بما في ذلك هندسة البيانات وتحليل البيانات. أركز على تحويل البيانات إلى حلول ورؤى مفهومة تسهم في دعم القرارات. لدي خبرة عملية في التعامل مع أدوات وتقنيات متعددة مثل Python و SQL و Power BI و Excel وتمثيل البيانات. أقوم بتطبيق مهاراتي من خلال مشاريع واقعية تشمل جمع البيانات، معالجتها، تنظيمها، وتحليلها لاستكشاف الأنماط وتقديم حلول مشكلات عملية. أطمح للمساهمة بشكل فعال وملموس في مجال البيانات.",btn_cv:"تحميل السيرة الذاتية",sec_skills:"المهارات والأدوات",skill_vis:"تمثيل البيانات",sec_projects:"مشاريعي",skill_auto:"الأتمتة (n8n)",skill_clean:"تنظيف البيانات (Pandas)",skill_api:"ربط الـ APIs",nav_education:"التعليم",nav_certs:"الشهادات",sec_education:"التعليم",edu1_degree:"بكالوريوس العلوم في علم البيانات",edu1_uni:"جامعة الأمير مساعد بن عبدالرحمن",edu1_date:"مارس 2023 – يناير 2026",edu1_note:"مشروع التخرج: EatWise، تطبيق تغذية مدعوم بالذكاء الاصطناعي.",edu2_degree:"دبلوم التربية – تقنية المعلومات",edu2_uni:"جامعة الأميرة نورة بنت عبدالرحمن",edu2_date:"مايو 2018 – أغسطس 2020",sec_certs:"الشهادات",cert_link:"عرض كل الشهادات على LinkedIn",cg1:"تحليل البيانات وذكاء الأعمال",c1_name:"Power BI",c1_meta:"منصة سطر · يونيو 2025",c2_name:"تحليل البيانات الاستكشافي",c2_meta:"منصة سطر · يونيو 2024",c3_name:"برنامج التعلم القائم على المشاريع في تحليل البيانات",c3_meta:"برنامج سفراء الطلاب IBM SkillsBuild · أكتوبر 2024",cg2:"البرمجة وSQL",c4_name:"Introduction to SQL",c4_meta:"DataCamp · يونيو 2025",c5_name:"Introduction to Data Science in Python",c5_meta:"Coursera · ديسمبر 2025",cg3:"الذكاء الاصطناعي والرياضيات",c6_name:"مفاهيم الذكاء الاصطناعي وتطبيقاته المتقدمة",c6_meta:"سدايا · أغسطس 2025",c7_name:"Mathematics for Machine Learning and Data Science",c7_meta:"Coursera · ديسمبر 2025",c8_name:"Linear Algebra for Machine Learning and Data Science",c8_meta:"Coursera · ديسمبر 2025",cg4:"القرارات المعتمدة على البيانات وتوليد البيانات",c9_name:"توليد البيانات للتحليل وتدريب النماذج",c9_meta:"ساعي · يونيو 2026",c10_name:"اتخاذ القرارات المعتمدة على البيانات",c10_meta:"الجمعية المهنية للإحصائيين وعلماء البيانات · يونيو 2026",c11_name:"خطة التعلم EYOUTH",c11_meta:"IBM · نوفمبر 2025",nav_experience:"الخبرة",sec_experience:"الخبرة العملية",exp_role:"متدربة علم البيانات",exp_company:"عصارة",exp_date:"يونيو 2026 – سبتمبر 2026",exp_b1:"نظّفت ونظّمت بيانات أسئلة وأجوبة العملاء لمساعد خدمة العملاء الذكي باستخدام Python (Pandas) وExcel: إزالة التكرار، ومعالجة القيم المفقودة، وتوحيد النصوص.",exp_b2:"بنيت مسار عمل في n8n يعتمد على Excel لتجهيز رسائل التواصل مع شركاء التكامل وتقليل العمل اليدوي المتكرر.",exp_b3:"ربطت خدمات الأطراف الثالثة بالمنصة عبر الـ APIs: راجعت الوثائق وضبطت الاتصال وتعاملت مع الطلبات والاستجابات.",exp_b4:"اختبرت وظائف الموقع ووثّقت المشاكل، وحدّثت موقع أحد العملاء عبر نظام الشركة الداخلي.",btn_preview:"معاينة",btn_report:"التقرير (PDF)",grp_powerbi:"لوحات Power BI",grp_pysql:"تحليل البيانات بـ Python و SQL",grp_ai:"الذكاء الاصطناعي والرؤية الحاسوبية",lbl_goal:"الهدف:",lbl_insights:"أبرز النتائج",p2_goal:"تحليل شبكة مترو الرياض عبر لوحة Power BI تفاعلية وخريطة، تشمل المسارات والمحطات وأنواع المحطات ومحطات التبديل.",p2_i1:"تضم الشبكة 6 مسارات و83 محطة فعلية (94 توقفاً على المسارات، لأن محطات التبديل تُحسب مرة لكل مسار)، ويضم المساران الأزرق (25) والبرتقالي (22) نصف التوقفات.",p2_i2:"المحطات المرتفعة هي الأكثر شيوعاً (40 من 94 توقفاً، نحو 43%)، تليها المحطات العميقة تحت الأرض (38)، والمسار الأصفر هو الأقصر (9 توقفات) وينتهي عند صالات المطار.",p2_i3:"عشر محطات هي محطات تبديل: المركز المالي يربط 3 مسارات، وتسع محطات أخرى (منها stc والحمراء) تربط مسارين لكل منها.",p3_goal:"تحليل الوظائف المنشورة على منصة جدارات في 2025 من القطاعات العام والخاص وشبه الحكومي لفهم الطلب حسب المنطقة والمسمى الوظيفي.",p3_i1:"نُشرت 140,624 وظيفة في 13 منطقة و328 مدينة خلال 2025، ويستحوذ القطاع الخاص على 88% (العام 10% وشبه الحكومي 2%).",p3_i2:"تستحوذ مكة المكرمة (44,106) والرياض (36,967) على 58% من الوظائف، ومع المنطقة الشرقية (19,129) والمدينة المنورة (13,942) تصل أعلى أربع مناطق إلى 81%.",p3_i3:"الطلب يتركز على الوظائف الميدانية والخدمية: حارس أمن (13,347)، أخصائي تمريض (10,233)، أخصائي خدمة عملاء (7,248)، بائع (6,992)، وموظف صندوق (5,521)، وأعلى 10 مسميات من 659 تمثل 42% من الوظائف.",p4_goal:"تحليل 1,200 عقار معروض في الرياض باستخدام SQL لفهم السوق من حيث أنواع العقارات والأحياء والفئات السعرية والمكاتب العقارية، ودعم اتخاذ القرارات المستقبلية.",p4_i1:"السوق تهيمن عليه الشقق (32.9%) والأدوار (32.4%) والفلل (26.7%)، وتشكل معاً نحو 92% من العقارات، بمتوسط سعر 1,669,415 ريال.",p4_i2:"الفلل تقود القيمة: تمثل 26.7% من العقارات لكنها نحو 55% من إجمالي قيمة المبيعات (حوالي 1.1 مليار من 2.0 مليار ريال)، وأعلى سعر فيلا 27 مليون ريال.",p4_i3:"حي بدر الأكثر عقارات (130)، يليه شبرا (89) والرمال (88)، بينما تتركز العقارات الفاخرة (أعلى 10% سعراً) في النرجس (23) والياسمين (13)، ثم المهدية والملقا (10 لكل منهما).",p5_goal:"تحليل زيارات العيادات الخارجية في مستشفى الملك فيصل التخصصي ومركز الأبحاث في الربع الأول من 2025 في أربعة أقسام، حسب الجنسية والجنس والمنشأة والشهر.",p5_i1:"سجّلت الأقسام الأربعة 227,845 زيارة للعيادات الخارجية في الربع الأول من 2025: الأورام 49%، مركز القلب 25%، زراعة الأعضاء 16%، والأعصاب 10%.",p5_i2:"يشكل السعوديون 97% من الزيارات (221,078 مقابل 6,767 لغير السعوديين)، وتزيد زيارات النساء قليلاً عن الرجال (117,307 مقابل 110,531).",p5_i3:"تستقبل الرياض 77% من الزيارات، تليها جدة (19%) والمدينة (4%)، ويتراجع حجم الزيارات الشهري من 37% في يناير إلى 28% في مارس.",p6_goal:"تحليل بيانات سهم ماكدونالدز (MCD) اليومية من 2000 إلى 2026 لفهم اتجاهات السعر والمخاطر، وقياس أثر أزمة 2008 وكوفيد-19، والتنبؤ بالاتجاهات المستقبلية باستخدام Prophet.",p6_i1:"نمو قوي على المدى الطويل: دولار واحد مستثمر في 2000 أصبح نحو 15 ضعفاً بحلول 2026، إذ ارتفع سعر الإغلاق من 6.77 دولار (مارس 2003) إلى 319.65 دولار (ديسمبر 2025).",p6_i2:"صمود أمام الأزمات: انخفض التذبذب اليومي بعد 2008 (من 0.0176 إلى 0.0126) ولم يتغير تقريباً بعد كوفيد-19 (من 0.0143 إلى 0.0142)، رغم أن مارس 2020 شهد أفضل يوم (+18.13%) وأسوأ يوم (−15.88%).",p6_i3:"التنبؤ: يتوقع نموذج Prophet استمرار الاتجاه الصاعد لنحو خمس سنوات بعد يناير 2026، مع اتساع مجال الثقة، مما يعني أن التنبؤات طويلة المدى تعكس الاتجاه العام لا الأسعار الدقيقة.",p7_goal:"مساعدة المستخدمين على اتخاذ خيارات غذائية أصح وتقليل هدر الطعام عبر الجمع بين الذكاء الاصطناعي والرؤية الحاسوبية وإرشادات غذائية مخصصة.",p7_i1:"تطبيق جوال مدعوم بالذكاء الاصطناعي يتعرف على منتجات البقالة باستخدام YOLOv8 وCLIP، ويقدم توصيات وجبات مخصصة وتتبعاً للسعرات وتنبيهات للحساسية والحالات الصحية.",p7_i2:"مشروع تخرج نفّذه فريق من ستة أعضاء في جامعة الأمير مساعد بن عبدالرحمن، باستخدام Flutter للتطبيق وFastAPI للخادم وSQLite لقاعدة البيانات.",p7_i3:"دوري: كنت مسؤولة عن بيانات المشروع، من جمعها وتنظيمها.",p1_goal:"فهم أنماط شركات الطيران والطائرات وجدولة الرحلات في مطار الملك خالد الدولي لدعم التخطيط التشغيلي.",p1_i1:"ثلاث شركات تهيمن على الحركة: الخطوط السعودية (60,886 رحلة)، وطيران ناس (33,935)، وطيران أديل (24,835)، وتشغّل معاً نحو 78% من إجمالي 153,308 رحلة.",p1_i2:"تبلغ الحركة ذروتها في المساء: الساعة 18:00 هي الأكثر ازدحاماً بـ 8,142 رحلة، تليها 20:00 (8,131) ثم 16:00 (7,904).",p1_i3:"جدة هي الوجهة الأولى بـ 27,938 رحلة (نحو 18% من الإجمالي)، متقدمة على دبي (12,333) والقاهرة (10,003).",
+p1_title:"تحليل بيانات رحلات مطار الملك خالد الدولي",p1_desc:"تحليل باستخدام Python لبيانات الرحلات في مطار الملك خالد الدولي لاستكشاف الأنماط والاتجاهات التشغيلية.",
+p2_title:"تحليل مشروع مترو الرياض",p2_desc:"لوحة Power BI تفاعلية وخريطة لتحليل مسارات مترو الرياض ومحطاته وأنواع المحطات.",
+p3_title:"تحليل بيانات الوظائف في منصة جدارات 2025",p3_desc:"لوحة Power BI تحلل اتجاهات سوق العمل والفرص الوظيفية في المملكة عبر منصة جدارات.",
+p4_title:"تحليل العقارات في مدينة الرياض",p4_desc:"تحليل شامل وعميق للعقارات في الرياض باستخدام استعلامات SQL المتقدمة.",
+p5_title:"بيانات العيادات الخارجية بمستشفى الملك فيصل التخصصي Q1 2025",p5_desc:"لوحة تحكم Power BI تفاعلية لتحليل عمليات وأداء العيادات الخارجية في المستشفى.",
+p6_title:"تحليل و تنبؤ أسهم ماكدونالدز",p6_desc:"تحليل بواسطة Python والتنبؤ بأسعار الأسهم باستخدام نموذج Prophet للسلاسل الزمنية.",
+p7_title:"مشروع التخرج - EatWise",p7_desc:"تطبيق جوال مدعوم بالذكاء الاصطناعي يساعد المستخدمين على اتخاذ خيارات غذائية أصح عبر توصيات وجبات مخصصة وتتبع السعرات وتنبيهات صحية.",
+footer_copy:"© 2026 نورة العميّر . جميع الحقوق محفوظة.",footer_built:"صُنع بـ ❤️"}
+};
+let currentLang='en';
+function toggleLanguage(){
+  currentLang=currentLang==='en'?'ar':'en';
+  document.documentElement.lang=currentLang;
+  document.documentElement.dir=currentLang==='ar'?'rtl':'ltr';
+  document.getElementById('lang-text').innerText=currentLang==='en'?'العربية':'English';
+  document.querySelectorAll('[data-key]').forEach(el=>{
+    const k=el.getAttribute('data-key');
+    if(translations[currentLang][k]) el.innerText=translations[currentLang][k];
+  });
+}
+
+/* ---- Project previews: thumbnails + lightbox ---- */
+const lb=document.getElementById('lightbox'),lbImg=document.getElementById('lb-img'),
+      lbCap=document.getElementById('lb-caption'),lbPrev=document.getElementById('lb-prev'),
+      lbNext=document.getElementById('lb-next'),lbClose=document.getElementById('lb-close');
+let lbImages=[],lbIndex=0,lbTitle='',lbFocus=null;
+
+function lbShow(){
+  lbImg.src=lbImages[lbIndex];
+  lbImg.alt=lbTitle+' ('+(lbIndex+1)+'/'+lbImages.length+')';
+  lbCap.textContent=lbTitle+(lbImages.length>1?'  ·  '+(lbIndex+1)+' / '+lbImages.length:'');
+  lbPrev.hidden=lbNext.hidden=lbImages.length<2;
+}
+function lbOpen(images,title,btn){
+  lbImages=images;lbIndex=0;lbTitle=title;lbFocus=btn;
+  lbShow();lb.classList.add('open');document.body.style.overflow='hidden';lbClose.focus();
+}
+function lbHide(){
+  lb.classList.remove('open');document.body.style.overflow='';
+  if(lbFocus) lbFocus.focus();
+}
+function lbStep(d){lbIndex=(lbIndex+d+lbImages.length)%lbImages.length;lbShow();}
+
+lbClose.addEventListener('click',lbHide);
+lbPrev.addEventListener('click',()=>lbStep(-1));
+lbNext.addEventListener('click',()=>lbStep(1));
+lb.addEventListener('click',e=>{if(e.target===lb)lbHide();});
+document.addEventListener('keydown',e=>{
+  if(!lb.classList.contains('open'))return;
+  const rtl=document.documentElement.dir==='rtl';
+  if(e.key==='Escape')lbHide();
+  if(e.key==='ArrowRight')lbStep(rtl?-1:1);
+  if(e.key==='ArrowLeft')lbStep(rtl?1:-1);
+});
+
+document.querySelectorAll('.project-card[data-images]').forEach(card=>{
+  const images=card.dataset.images.split(',').map(x=>x.trim()).filter(Boolean);
+  const title=card.querySelector('.project-title').innerText;
+  const wrap=document.createElement('button');
+  wrap.type='button';wrap.className='thumb-btn';wrap.setAttribute('aria-label',title);
+  const thumb=new Image();
+  thumb.className='project-thumb';thumb.loading='lazy';thumb.alt='';thumb.src=images[0];
+  const badge=document.createElement('span');
+  badge.className='thumb-badge';badge.innerHTML='<i class="fas fa-expand"></i>';
+  wrap.append(thumb,badge);
+  wrap.addEventListener('click',()=>lbOpen(images,card.querySelector('.project-title').innerText,wrap));
+  /* If the image file isn't there yet, hide the thumbnail */
+  thumb.addEventListener('error',()=>wrap.remove());
+  card.querySelector('div').prepend(wrap);
+});
+</script>
 </body>
 </html>
